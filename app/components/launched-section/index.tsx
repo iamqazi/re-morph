@@ -19,7 +19,7 @@ const LaunchpadSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 py-16 bg-[#030128] text-white overflow-hidden">
+    <section className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 pb-16 bg-[#030128] text-white overflow-hidden">
       {/* Left Image Section with Rotation */}
       <div className="w-full md:w-1/2 flex justify-center relative">
         <div
@@ -40,14 +40,21 @@ const LaunchpadSection: React.FC = () => {
       {/* Right Text Section */}
       <div className="w-full md:w-1/2 md:ml-[40px] flex flex-col text-center md:text-left mt-10 md:mt-0">
         <h2 className="text-[24px] md:text-[40px] lg:text-[60px] font-[500] font-jakarta leading-tight">
-          Built-In Launchpad <br /> To Launch Memes
+          AI Co-Pilot for Web3 <br /> Growth
         </h2>
-        <p className="text-[#9B9BBD] mt-[24px] text-[24px]">
-          Use our built-in launchpad dashboard to track your meme and contribute
-          to liquidity pool as your token grows over time.
+        <p className="text-[#9B9BBD] font-[300] font-sans mt-[24px] text-[24px]">
+          Unlock your project&apos;s full potential with AI-powered Business
+          Development and personalized guidance every step of the way.
         </p>
-        <button className="border-white/20 mt-[24px] !bg-[#A428E70D] text-[20px] w-[252px] h-[56px] text-[#DEDDFF] border-[2px] generate-button mx-auto md:mx-0">
-          COMING SOON
+        <button
+          style={{
+            background:
+              "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
+          }}
+          type="submit"
+          className={`px-6 mt-[24px] py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[198px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-[600] rounded-[12px]`}
+        >
+          Coming Soon
         </button>
       </div>
     </section>

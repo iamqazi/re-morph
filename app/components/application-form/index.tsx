@@ -26,16 +26,16 @@ const RemorphApplicationForm = () => {
     teamExperience: "",
 
     // Section 3
-    businessModel: "",
-    marketingStrategy: "",
-    roadmap: "",
-    additionalInfo: "",
     // New fields for Section 3
     projectStatus: "",
     hasPartnership: "",
     technicalCapabilities: "",
     partnerships: "",
   });
+
+  // Current date for validation
+  const currentDate = new Date();
+  const minDate = new Date().toISOString().split("T")[0]; // Today's date in YYYY-MM-DD format
 
   // Error state
   const [errors, setErrors] = useState({
@@ -44,12 +44,12 @@ const RemorphApplicationForm = () => {
     businessModel: "",
     founderFullName: "",
     emailAddress: "",
+    launchDate: "",
   });
 
   // Toggle state
   const [isSolanaSelected, setIsSolanaSelected] = useState(true);
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -59,6 +59,17 @@ const RemorphApplicationForm = () => {
     // Clear error when user types
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  // Handle date change
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setFormData((prev) => ({ ...prev, launchDate: value }));
+
+    // Clear date error
+    if (errors.launchDate) {
+      setErrors((prev) => ({ ...prev, launchDate: "" }));
     }
   };
 
@@ -76,6 +87,20 @@ const RemorphApplicationForm = () => {
     }));
   };
 
+  // Validate date
+  const validateDate = (dateString: string) => {
+    if (!dateString) return "Launch date is required";
+
+    const selectedDate = new Date(dateString);
+    if (isNaN(selectedDate.getTime())) return "Invalid date format";
+
+    if (selectedDate < currentDate) {
+      return "Launch date cannot be in the past";
+    }
+
+    return "";
+  };
+
   // Form validation for each step
   const validateStep = (step: number) => {
     let isValid = true;
@@ -84,6 +109,13 @@ const RemorphApplicationForm = () => {
     if (step === 1) {
       if (!formData.projectName.trim()) {
         newErrors.projectName = "Project name is required";
+        isValid = false;
+      }
+
+      // Validate date
+      const dateError = validateDate(formData.launchDate);
+      if (dateError) {
+        newErrors.launchDate = dateError;
         isValid = false;
       }
     } else if (step === 2) {
@@ -100,7 +132,7 @@ const RemorphApplicationForm = () => {
         isValid = false;
       }
     } else if (step === 3) {
-      if (!formData.businessModel.trim()) {
+      if (!formData.hasPartnership.trim()) {
         newErrors.businessModel = "Business model is required";
         isValid = false;
       }
@@ -138,7 +170,7 @@ const RemorphApplicationForm = () => {
 
   return (
     <div className="min-h-screen relative flex items-center justify-center py-12 px-4 bg-[#030128] ">
-      <div className="absolute top-[40px] flex justify-center items-center mx-auto left-0 right-0 z-20">
+      <div className="absolute top-[40px] flex justify-center items-center mx-auto left-0 right-0 z-20 xl:px-0 px-[16px]">
         <NavBar />
       </div>
       <Image
@@ -155,10 +187,10 @@ const RemorphApplicationForm = () => {
         alt="glow"
         className="absolute top-0 z-10 right-0"
       />
-      <div className="relative z-10 mt-[120px] w-full max-w-[1220px] mx-auto px-4">
+      <div className="relative z-10 mt-[120px] w-full max-w-[1226px] mx-auto ">
         {/* Progress indicator */}
         <div className="mb-8 text-center">
-          <p className="text-[#FEFCFC] text-[16px] mb-4">
+          <p className="text-[#FEFCFC] font-jakarta text-[16px] mb-4">
             Section {currentStep} of 3
           </p>
           <div className="flex justify-center items-center ">
@@ -198,7 +230,7 @@ const RemorphApplicationForm = () => {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
           }}
-          className="bg-transparent border border-white/15 rounded-xl p-8 shadow-xl w-full"
+          className="bg-transparent border border-white/15 rounded-xl py-[62px] px-[24px] md:px-[76px] shadow-xl w-full"
         >
           {currentStep === 1 && (
             <h1 className="text-[24px] md:text-[40px] font-jakarta font-[600] text-white mb-4">
@@ -212,14 +244,14 @@ const RemorphApplicationForm = () => {
                 VERIFICATION & AGREEMENT
               </h2>
               <div className="flex items-start mb-2">
-                <p className="ml-2 text-[#F4EAEA] font-jakarta text-[14px]">
+                <p className="text-[#F4EAEA] max-w-[860px] font-jakarta text-[14px]">
                   ✅ By submitting this form, you agree that your project will
                   undergo verification before approval. We prioritize serious
                   builders with a clear vision and strong execution plan.
                 </p>
               </div>
               <div className="flex items-center">
-                <p className="ml-2 text-white font-jakarta font-[700] text-[14px]">
+                <p className=" text-white font-jakarta font-[700] text-[14px]">
                   📩 After submission, our team will review your application and
                   get in touch for further verification.
                 </p>
@@ -236,7 +268,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="projectName"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Project Name
                     </label>
@@ -262,7 +294,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="projectLinks"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Project links (Website, Twitter, Telegram, Discord, etc.)
                     </label>
@@ -279,19 +311,19 @@ const RemorphApplicationForm = () => {
 
                   {/* Blockchain */}
                   <div>
-                    <label className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2">
+                    <label className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2">
                       Blockchain (Only supports Solana at the moment)
                     </label>
-                    <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border ">
+                    <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta  text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border ">
                       <div className="flex items-center">
                         <div
-                          className={`w-10 h-6 rounded-full p-1 cursor-pointer ${
-                            isSolanaSelected ? "bg-purple-500" : "bg-gray-700"
+                          className={`w-10 h-6 border border-[#C5B9F7] rounded-full p-[3px] cursor-pointer ${
+                            isSolanaSelected ? "bg-[#7E61FF]" : "bg-[#C4C4C41A]"
                           }`}
                           onClick={toggleBlockchain}
                         >
                           <div
-                            className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
+                            className={`bg-[#C5B9F7] w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
                               isSolanaSelected
                                 ? "translate-x-4"
                                 : "translate-x-0"
@@ -307,7 +339,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="tokenContract"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Token contract (if already deployed)
                     </label>
@@ -322,40 +354,33 @@ const RemorphApplicationForm = () => {
                     />
                   </div>
 
-                  {/* Launch Date */}
+                  {/* Launch Date - Replace with proper date picker */}
                   <div>
                     <label
                       htmlFor="launchDate"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
-                      Expected launch date (if already deployed)
+                      Expected launch date
                     </label>
                     <div className="relative">
                       <input
                         id="launchDate"
                         name="launchDate"
-                        type="text"
-                        placeholder="Month/Day/Year"
+                        aria-placeholder="hh"
+                        placeholder="month/day/year"
+                        type="date"
+                        min={minDate}
                         value={formData.launchDate}
-                        onChange={handleChange}
-                        className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
+                        onChange={handleDateChange}
+                        className={`w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta text-[15px] italic text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2] ${
+                          errors.launchDate ? "border-red-500" : ""
+                        } [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert`}
                       />
-                      <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
+                      {errors.launchDate && (
+                        <p className="mt-1 text-red-500 text-sm">
+                          {errors.launchDate}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </>
@@ -368,7 +393,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="teamVerification"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Team verification (kyc)
                     </label>
@@ -387,7 +412,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="founderFullName"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Full name of project founder(s)
                     </label>
@@ -413,7 +438,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="emailAddress"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Email address
                     </label>
@@ -421,6 +446,7 @@ const RemorphApplicationForm = () => {
                       id="emailAddress"
                       name="emailAddress"
                       type="email"
+                      maxLength={255}
                       placeholder="add email address"
                       value={formData.emailAddress}
                       onChange={handleChange}
@@ -439,7 +465,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="telegramHandle"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Telegram / x handle
                     </label>
@@ -458,7 +484,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="projectLinksExtended"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Project links (Website, Twitter, Telegram, Discord, etc.)
                     </label>
@@ -477,7 +503,7 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="teamExperience"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Team experience & previous projects
                     </label>
@@ -497,9 +523,47 @@ const RemorphApplicationForm = () => {
               {/* === SECTION 3 === */}
               {currentStep === 3 && (
                 <>
+                  {/* Technical Capabilities */}
+                  <div>
+                    <label
+                      htmlFor="technicalCapabilities"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
+                    >
+                      Project capabilities
+                    </label>
+                    <textarea
+                      id="technicalCapabilities"
+                      name="technicalCapabilities" // Unique name
+                      placeholder="Description (optional)"
+                      rows={3}
+                      value={formData.technicalCapabilities}
+                      onChange={handleChange}
+                      className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
+                    />
+                  </div>
+
+                  {/* Partnerships */}
+                  <div>
+                    <label
+                      htmlFor="partnerships"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
+                    >
+                      What is your project’s main goal?
+                    </label>
+                    <textarea
+                      id="partnerships"
+                      name="partnerships" // Unique name
+                      placeholder="Long replay text"
+                      rows={3}
+                      value={formData.partnerships}
+                      onChange={handleChange}
+                      className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
+                    />
+                  </div>
+
                   {/* Project Status - Radio buttons */}
                   <div>
-                    <label className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2">
+                    <label className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2">
                       What is your project&apos;s main goal?
                     </label>
                     <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta text-[15px] text-white rounded-md border-white/30 border">
@@ -513,10 +577,10 @@ const RemorphApplicationForm = () => {
                         ].map((option) => (
                           <div key={option} className="flex items-center">
                             <div
-                              className={`w-6 h-6 rounded-full border ${
+                              className={`w-6 h-6 rounded-full  ${
                                 formData.projectStatus === option
-                                  ? "bg-[#8258F2] border-[#8258F2]"
-                                  : "bg-transparent border-white/60"
+                                  ? "bg-[#7E61FF] border-[#7E61FF]"
+                                  : "bg-[#D9D9D933] "
                               } flex items-center justify-center cursor-pointer`}
                               onClick={() =>
                                 handleOptionChange("projectStatus", option)
@@ -535,7 +599,7 @@ const RemorphApplicationForm = () => {
 
                   {/* Yes/No - Radio buttons */}
                   <div>
-                    <label className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2">
+                    <label className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2">
                       What is your project&apos;s main goal?
                     </label>
                     <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta text-[15px] text-white rounded-md border-white/30 border">
@@ -543,10 +607,10 @@ const RemorphApplicationForm = () => {
                         {["Yes", "No"].map((option) => (
                           <div key={option} className="flex items-center">
                             <div
-                              className={`w-6 h-6 rounded-full border ${
+                              className={`w-6 h-6 rounded-full  ${
                                 formData.hasPartnership === option
-                                  ? "bg-[#8258F2] border-[#8258F2]"
-                                  : "bg-transparent border-white/60"
+                                  ? "bg-[#7E61FF] border-[#7E61FF]"
+                                  : "bg-[#D9D9D933]"
                               } flex items-center justify-center cursor-pointer`}
                               onClick={() =>
                                 handleOptionChange("hasPartnership", option)
@@ -567,13 +631,13 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="technicalCapabilities"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Can you showcase your technical capabilities?
                     </label>
                     <textarea
                       id="technicalCapabilities"
-                      name="technicalCapabilities"
+                      name="technicalCapabilities" // Unique name
                       placeholder="Long replay text"
                       rows={3}
                       value={formData.technicalCapabilities}
@@ -586,99 +650,16 @@ const RemorphApplicationForm = () => {
                   <div>
                     <label
                       htmlFor="partnerships"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
+                      className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
                       Any partnerships on board?
                     </label>
                     <textarea
                       id="partnerships"
-                      name="partnerships"
+                      name="partnerships" // Unique name
                       placeholder="Long replay text"
                       rows={3}
                       value={formData.partnerships}
-                      onChange={handleChange}
-                      className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
-                    />
-                  </div>
-
-                  {/* Business Model */}
-                  <div>
-                    <label
-                      htmlFor="businessModel"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
-                    >
-                      Business Model
-                    </label>
-                    <textarea
-                      id="businessModel"
-                      name="businessModel"
-                      placeholder="Describe your business model"
-                      rows={4}
-                      value={formData.businessModel}
-                      onChange={handleChange}
-                      className={`w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2] ${
-                        errors.businessModel ? "border border-red-500" : ""
-                      }`}
-                    />
-                    {errors.businessModel && (
-                      <p className="mt-1 text-red-500 text-sm">
-                        {errors.businessModel}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Marketing Strategy */}
-                  <div>
-                    <label
-                      htmlFor="marketingStrategy"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
-                    >
-                      Marketing Strategy
-                    </label>
-                    <textarea
-                      id="marketingStrategy"
-                      name="marketingStrategy"
-                      placeholder="Describe your marketing strategy"
-                      rows={3}
-                      value={formData.marketingStrategy}
-                      onChange={handleChange}
-                      className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
-                    />
-                  </div>
-
-                  {/* Roadmap */}
-                  <div>
-                    <label
-                      htmlFor="roadmap"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
-                    >
-                      Project Roadmap
-                    </label>
-                    <textarea
-                      id="roadmap"
-                      name="roadmap"
-                      placeholder="Share your project roadmap"
-                      rows={3}
-                      value={formData.roadmap}
-                      onChange={handleChange}
-                      className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
-                    />
-                  </div>
-
-                  {/* Additional Info */}
-                  <div>
-                    <label
-                      htmlFor="additionalInfo"
-                      className="block text-[16px] md:text-[18px] font-jakarta font-[400] text-white mb-2"
-                    >
-                      Additional Information
-                    </label>
-                    <textarea
-                      id="additionalInfo"
-                      name="additionalInfo"
-                      placeholder="Any additional information you'd like to share"
-                      rows={3}
-                      value={formData.additionalInfo}
                       onChange={handleChange}
                       className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta italic text-[15px] text-white/60 placeholder:text-white/60 rounded-md border-white/30 border focus:outline-none focus:ring-1 focus:ring-[#8258F2]"
                     />
@@ -687,26 +668,39 @@ const RemorphApplicationForm = () => {
               )}
 
               {/* Navigation Buttons */}
-              <div className="pt-4 flex justify-between">
+              <div className="pt-4 flex gap-4 md:flex-row flex-col justify-between">
                 {currentStep > 1 && (
                   <button
+                    style={{
+                      boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                      backdropFilter: " blur(6.5px)",
+                    }}
                     type="button"
                     onClick={handlePrevious}
-                    className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-md transition-colors duration-300"
+                    className="px-6 py-3 text-white md:w-[334px] md:text-[20px] h-[55px] text-[14px] uppercase border border-white/25 font-medium rounded-[12px] "
                   >
-                    PREVIOUS SECTION
+                    go to the previous page
                   </button>
                 )}
 
                 <button
+                  style={{
+                    background:
+                      "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
+                    order: currentStep === 1 ? -1 : 1,
+                  }}
                   type="submit"
-                  className={`px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-medium rounded-md transition-colors duration-300 shadow-lg shadow-purple-500/30 ${
-                    currentStep === 1 ? "ml-auto" : ""
-                  }`}
+                  className={`px-6 py-4 md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
                 >
                   {currentStep < 3
                     ? "GO TO NEXT SECTION"
                     : "SUBMIT APPLICATION"}
+                  <Image
+                    src={"/arrow.png"}
+                    height={20}
+                    width={25}
+                    alt="arrow"
+                  />
                 </button>
               </div>
             </div>

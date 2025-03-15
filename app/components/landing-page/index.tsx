@@ -6,6 +6,7 @@ import Pricing from "../pricing-section";
 import Team from "../team-section";
 import Footer from "../shared-ui/footer";
 import Timeline from "../timeline";
+import CTASection from "../cta-section";
 
 const LandingPage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const LandingPage: React.FC = () => {
       <Pricing />
       <Timeline />
       <Team />
+      <CTASection />
       <Footer />
     </div>
   );

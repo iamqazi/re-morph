@@ -11,7 +11,7 @@ const Pricing: React.FC = () => {
         <Image
           src={"/pricing.png"}
           width={300}
-          height={20}
+          height={22}
           alt="img"
           className="mb-[16px]"
         />
@@ -64,15 +64,17 @@ const Pricing: React.FC = () => {
               <div className="flex flex-col items-start">
                 <div className="flex">
                   <span
-                    className={`text-[48px] font-jakarta leading-[52px] font-[500] ${
-                      plan.index !== 1 ? "text-[#B194FF]" : "text-white"
+                    className={`font-jakarta  text-[48px] leading-[52px] font-[600] ${
+                      plan.index !== 1
+                        ? "text-[#B194FF] text-[48px]  "
+                        : "text-white  md:text-[60px]"
                     }`}
                   >
                     {plan.price}
                   </span>
-                  <div className="flex flex-col gap-1 px-4">
+                  <div className="flex flex-col gap-1 px-2">
                     {plan.discount && (
-                      <span className="ml-2 text-sm text-[#9B9BBD] px-2 py-1 rounded">
+                      <span className="text-sm text-[#9B9BBD]  py-1 rounded">
                         {plan.discount}
                       </span>
                     )}
@@ -92,7 +94,7 @@ const Pricing: React.FC = () => {
               {/* Features List */}
               <ul className="mt-6 space-y-2 text-gray-300">
                 {plan.features.map((feature, index) => (
-                  <li key={index} className="flex items-center">
+                  <li key={index} className="flex mb-[12px] items-center">
                     <Image
                       src={"/tick.png"}
                       width={24}

@@ -3,11 +3,11 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-[#030128] text-white flex flex-col">
+    <div className="bg-[#030128] text-white flex flex-col md:px-0 px-[16px] ">
       {/* Main content area */}
 
       {/* Footer Card */}
-      <div className="mx-auto w-full max-w-[1280px] mb-4">
+      <div className="mx-auto w-full max-w-[1226px] mb-4">
         <div
           style={{
             boxShadow: "0px 0px 55px 0px #C5B9F626 inset",
@@ -19,8 +19,8 @@ const Footer: React.FC = () => {
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="flex items-center mb-6">
                 <Image
-                  height={80}
-                  width={300}
+                  height={72}
+                  width={245}
                   src="/logo.png"
                   alt="ReMorph Ai Logo"
                   className=" mr-3"
@@ -35,23 +35,24 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Right Section */}
-            <div className="max-w-[500px] flex flex-col ">
+            <div className="w-2/5 flex flex-col ">
               <div className=" ">
-                <div className="flex flex-col md:flex-row w-full md:w-auto mb-4 md:mb-0">
-                  <input
-                    type="email"
-                    placeholder="Write you email here..."
-                    className="bg-transparent border-[1px] border-white/15 rounded-[12px] h-[44px] px-4 py-2 mb-4 md:mb-0 md:mr-4 text-white/20 placeholder:text-white/20 md:w-[300px] "
+                <button
+                  style={{
+                    background:
+                      "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
+                  }}
+                  type="submit"
+                  className={`px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
+                >
+                  Apply Now
+                  <Image
+                    src={"/arrow.png"}
+                    height={20}
+                    width={25}
+                    alt="arrow"
                   />
-                  <button
-                    style={{
-                      boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
-                    }}
-                    className="border-white/15 rounded-[12px] text-[16px] md:w-[162px] h-[44px] text-[#DEDDFF] border-[2px]"
-                  >
-                    Join the waitlist
-                  </button>
-                </div>
+                </button>
               </div>
               <div className="flex gap-[80px] max-w-[500px] mt-[30px]">
                 {/* Docs Column */}
@@ -129,12 +130,12 @@ const Footer: React.FC = () => {
 
       {/* Copyright Bar */}
       <div className="bg-[#0a0a20] text-[14px] text-[#777599] py-4">
-        <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div>Copyright 2025</div>
+        <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div className=" font-sans">Copyright 2025</div>
           <div>
-            <span>Privacy - Policy</span>
-            <span className="mx-2">|</span>
-            <span>Powered by Digitaltodesign</span>
+            <span className=" font-sans">Privacy - Policy</span>
+            <span className=" font-sans mx-2">|</span>
+            <span className=" font-sans">Powered by Digitaltodesign</span>
           </div>
         </div>
       </div>
