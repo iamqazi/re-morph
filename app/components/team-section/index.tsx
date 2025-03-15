@@ -24,7 +24,7 @@ const Team: React.FC = () => {
             className="relative bg-[#14102F] flex justify-center items-center flex-col rounded-2xl overflow-hidden shadow-lg border border-[#C5B9F64D] text-center"
           >
             {/* Member Image */}
-            <div className=" p-[20px]">
+            <div className="px-[21px] py-[18px]">
               <Image
                 src={member.image}
                 alt={member.name}
@@ -35,7 +35,7 @@ const Team: React.FC = () => {
             </div>
 
             {/* Member Info */}
-            <div className="mb-[30px] text-white">
+            <div className="mb-[27px] text-white">
               <h3 className="text-[26px] font-[500] text-[#C5B9F6] font-jakarta">
                 {member.name}
               </h3>

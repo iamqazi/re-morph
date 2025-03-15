@@ -16,7 +16,10 @@ const LandingPage: React.FC = () => {
       <Pricing />
       <Timeline />
       <Team />
-      <CTASection />
+      <div className="my-[60px]">
+        {" "}
+        <CTASection />
+      </div>
       <Footer />
     </div>
   );

@@ -64,7 +64,7 @@ const Pricing: React.FC = () => {
               <div className="flex flex-col items-start">
                 <div className="flex">
                   <span
-                    className={`font-jakarta  text-[48px] leading-[52px] font-[600] ${
+                    className={`font-jakarta whitespace-nowrap  text-[48px] leading-[52px] font-[600] ${
                       plan.index !== 1
                         ? "text-[#B194FF] text-[48px]  "
                         : "text-white  md:text-[60px]"
@@ -73,14 +73,17 @@ const Pricing: React.FC = () => {
                     {plan.price}
                   </span>
                   <div className="flex flex-col gap-1 px-2">
-                    {plan.discount && (
-                      <span className="text-sm text-[#9B9BBD]  py-1 rounded">
-                        {plan.discount}
-                      </span>
-                    )}
+                    <p className="w-[55px] rounded-[55px]  bg-white/5 flex justify-center">
+                      {" "}
+                      {plan.discount && (
+                        <span className="text-sm text-[#9B9BBD]  py-1 rounded">
+                          {plan.discount}
+                        </span>
+                      )}
+                    </p>
                     {/* Best Value Badge */}
                     {plan.badge && (
-                      <span className=" bg-[#C5B8FF] text-[#040128] text-xs font-normal px-3 py-1 rounded">
+                      <span className=" bg-[#C5B8FF] text-[#040128] text-[12px] font-normal px-3 py-1 rounded">
                         {plan.badge}
                       </span>
                     )}
@@ -92,7 +95,7 @@ const Pricing: React.FC = () => {
               </div>
 
               {/* Features List */}
-              <ul className="mt-6 space-y-2 text-gray-300">
+              <ul className="mt-[18px] space-y-2 text-[#9B9BBD]">
                 {plan.features.map((feature, index) => (
                   <li key={index} className="flex mb-[12px] items-center">
                     <Image
@@ -110,7 +113,8 @@ const Pricing: React.FC = () => {
             {/* Button */}
             <button
               style={{
-                boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                boxShadow:
+                  plan.index === 2 ? "0px 0px 20px 0px #FFFFFF33 inset" : "",
               }}
               className="mb-[40px] mx-[40px] w-[280px] xl:w-[310px] mt-6 border-[1px] border-[#545269] text-white py-3 rounded-lg shadow-md hover:opacity-80 transition"
             >

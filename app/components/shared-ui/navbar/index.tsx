@@ -23,7 +23,7 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="max-w-[1220px] w-full bg-transparent border-[2px] rounded-[16px] border-white/15">
+      <header className="max-w-[1220px] w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
         <div className="w-full h-[68px] mx-auto flex justify-between items-center p-[12px]">
           {/* Logo on the left */}
           <Link href="/" className="text-white text-xl font-bold">
@@ -37,7 +37,7 @@ export default function NavBar() {
           </Link>
 
           {/* Navbar menu for medium and large screens */}
-          <div className="hidden md:flex flex-grow justify-center">
+          <div className="hidden lg:flex flex-grow justify-center">
             <ul className="flex items-center space-x-8 text-[#DEDDFF]">
               <li>
                 <Link href="/">
@@ -80,7 +80,7 @@ export default function NavBar() {
           </div>
 
           {/* Signup button on the right for medium and large screens */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <button
               style={{
                 background:
@@ -97,7 +97,7 @@ export default function NavBar() {
       </header>
 
       {/* Mobile Menu */}
-      <div className="md:hidden block">
+      <div className="lg:hidden block">
         <Menu right>
           <Link
             id="home"

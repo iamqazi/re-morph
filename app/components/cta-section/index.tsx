@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const CTASection: React.FC = () => {
   return (
-    <div className="relative w-full my-8 mx-auto max-w-[1226px] md:px-0 px-[16px] ">
+    <div className="relative w-full my-8 mx-auto max-w-[1226px] xl:px-0 px-[16px] ">
       <div className="relative overflow-hidden rounded-3xl">
         {/* Background Image */}
         <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -13,7 +13,7 @@ const CTASection: React.FC = () => {
             src="/cta-bg.png"
             alt="Background"
             fill
-            className="object-cover md:object-contain"
+            className=" md:object-contain"
             priority
           />
           {/* Overlay - Semi-transparent to ensure text readability */}
