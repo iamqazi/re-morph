@@ -124,3 +124,107 @@ export const timelineData: TimelineItem[] = [
     ],
   },
 ];
+
+export interface newListingItem {
+  id: string;
+  title: string;
+  img: string;
+  desc: string;
+  liquidity: string;
+  volume: string;
+  MC:string;
+  favourite: string;
+}
+
+export const newListing:newListingItem[]=[
+  {
+    id:'2879242',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+  {
+    id:'2930242',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+  {
+    id:'2879243',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+  {
+    id:'4892189',
+    title:'',
+    desc:'',
+    img:'/newListing.svg',
+    liquidity:'$400K',
+    volume:'$13.4M',
+    MC:'$100M',
+    favourite:'341'
+  },
+  {
+    id:'4894389',
+    title:'',
+    desc:'',
+    img:'/newListing.svg',
+    liquidity:'$400K',
+    volume:'$13.4M',
+    MC:'$100M',
+    favourite:'341'
+  },
+  {
+    id:'4898089',
+    title:'',
+    desc:'',
+    img:'/newListing.svg',
+    liquidity:'$400K',
+    volume:'$13.4M',
+    MC:'$100M',
+    favourite:'341'
+  },
+  {
+    id:'5879242',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+  {
+    id:'6930242',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+  {
+    id:'9879243',
+    title:'Created by RemorphAI',
+    desc:'ReMorph AI is a cutting-edge Web3 AI platform designed to empower developers, creators, and traders by combining AI-driven tools with on-chain utility.',
+    img:'/newListing.svg',
+    liquidity:'',
+    volume:'',
+    MC:'',
+    favourite:''
+  },
+]
