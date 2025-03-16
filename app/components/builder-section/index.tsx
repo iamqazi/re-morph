@@ -36,7 +36,10 @@ const RemorphCard: React.FC = () => {
   ];
 
   return (
-    <div className=" max-w-[1220px]  mx-auto px-4 py-8">
+    <div className=" max-w-[1220px]  mx-auto px-10 py-[100px]">
+      <h1 className="text-white text-[24px] md:text-[48px] xl:text-[60px] font-jakarta  font-[500] mb-[48px]">
+      Verified Builders
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cardsData.map((card) => (
           <Card key={card.id} data={card} />
@@ -56,7 +59,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       style={{
         boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
       }}
-      className="rounded-[12px] border border-white/20 overflow-hidden relative bg-white/5"
+      className="rounded-[6px] border border-white/20 overflow-hidden relative bg-white/5"
     >
       {/* Background graphic curves */}
       <div className="absolute bottom-0 right-0 ">
@@ -67,7 +70,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       </div>
 
       {/* Top logo */}
-      <div className="p-4 relative z-10">
+      <div className="p-5 relative z-10">
         <div className="flex items-center">
           <div className="w-12 h-12 mr-3">
             <Image src={"/logo-box.png"} height={65} width={58} alt="line" />{" "}
@@ -85,7 +88,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
           <button
             style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
             key={index}
-            className="bg-[#7E61FF0D] w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[12px] hover:bg-opacity-70 transition duration-300"
+            className="bg-[#7E61FF0D] w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[6px] hover:bg-opacity-70 transition duration-300"
           >
             {item}
           </button>

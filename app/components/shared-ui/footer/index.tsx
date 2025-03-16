@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-[#030128] text-white flex flex-col md:px-0 px-[16px] ">
+    <div className="bg-[#030128] text-white flex flex-col md:px-0 px-[16px] mx-10 ">
       {/* Main content area */}
 
       {/* Footer Card */}
@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#0a0a20] text-[14px] text-[#777599] py-4">
+      <div className=" text-[14px] text-[#777599] py-4">
         <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className=" font-sans">Copyright 2025</div>
           <div>

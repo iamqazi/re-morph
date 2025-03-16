@@ -6,8 +6,8 @@ import { IoIosArrowDropright } from 'react-icons/io'
 
 export default function NewListings() {
   return (
-    <div className=' xl:mx-[110px] md:mx-[70px] sm:mx-[40px] mx-[20px] text-white '>
-      <h3 className='py-[48px] xl:text-6xl text-5xl  text-center lg:text-start font-jakarta '>
+    <div className=' text-white mt-[50px] max-w-[1220px] mx-auto px-10'>
+      <h3 className='mb-[48px] mt-[50px] xl:text-6xl text-5xl  text-center lg:text-start font-jakarta '>
         New listings
       </h3>
       <section className='flex flex-wrap gap-x-5 gap-y-12 justify-center '>
