@@ -691,7 +691,7 @@ const RemorphApplicationForm = () => {
                     order: currentStep === 1 ? -1 : 1,
                   }}
                   type="submit"
-                  className={`px-6 py-4 md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
+                  className={`px-6 py-4 md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-white/20 text-white font-medium rounded-[12px]`}
                 >
                   {currentStep < 3
                     ? "GO TO NEXT SECTION"

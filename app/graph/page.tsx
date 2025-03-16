@@ -1,6 +1,8 @@
 import GraphSection from "../components/graph-section";
 import GraphFooter from "../components/shared-ui/graph-cta";
 import NavBar from "../components/shared-ui/navbar";
+import { TokenTable } from "../components/trending-section";
+import { tokenData } from "../libs/data";
 
 export default function Graphpage() {
   return (
@@ -12,6 +14,7 @@ export default function Graphpage() {
       <div className="pt-32">
         <GraphSection />
       </div>
+      <TokenTable data={tokenData} itemsPerPage={10} />
       <GraphFooter />
     </div>
   );

@@ -4,7 +4,7 @@ import CryptoTransactionsTable from "../chart";
 export default function GraphSection() {
   return (
     <section
-      className="bg-[#100B4E33] border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
+      className="bg-[#100B4E33]  mb-[100px] border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
    grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px]  "
     >
       <div className="lg:flex-col lg:flex lg:order-1 order-2 gap-2 grid  grid-cols-1 lg:mt-0 mt-5">

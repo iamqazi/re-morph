@@ -4,7 +4,7 @@ import React from "react";
 
 const GraphFooter: React.FC = () => {
   return (
-    <div className="bg-[#030128] mt-[100px] text-white flex flex-col md:px-0 px-[16px]">
+    <div className="bg-[#030128] mt-[100px] text-white flex flex-col xl:px-0 px-[16px]">
       {/* Main content area */}
 
       {/* GraphFooter Card */}
