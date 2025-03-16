@@ -36,9 +36,9 @@ const RemorphCard: React.FC = () => {
   ];
 
   return (
-    <div className=" max-w-[1220px]  mx-auto px-10 py-[100px]">
+    <div className=" max-w-[1220px]  mx-auto xl:px-0 px-[16px] py-[100px]">
       <h1 className="text-white text-[24px] md:text-[48px] xl:text-[60px] font-jakarta  font-[500] mb-[48px]">
-      Verified Builders
+        Verified Builders
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cardsData.map((card) => (
@@ -83,7 +83,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       </div>
 
       {/* Menu buttons */}
-      <div className="flex max-w-[330px]   relative z-10 justify-between px-4 mt-4">
+      <div className="flex max-w-[330px] gap-2  relative z-10 justify-between px-4 mt-4">
         {data.menuItems.map((item, index) => (
           <button
             style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}

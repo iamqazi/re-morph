@@ -44,7 +44,7 @@ export const TokenTable: React.FC<TokenTableProps> = ({
   };
 
   return (
-    <div className="bg-transparent max-w-[1220px] mx-auto rounded-lg overflow-hidden mb-[100px] px-10">
+    <div className="bg-transparent max-w-[1220px] mx-auto rounded-lg overflow-hidden mb-[100px] xl:px-0 px-[16px]">
       <h1 className="text-white text-[24px] md:text-[48px] xl:text-[60px] font-jakarta  font-[500] mb-[48px]">
         Trending Tokens
       </h1>

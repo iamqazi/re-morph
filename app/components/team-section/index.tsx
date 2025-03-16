@@ -5,7 +5,7 @@ import { teamMembers } from "@/app/libs/data";
 
 const Team: React.FC = () => {
   return (
-    <section className="bg-[#030128] py-16 px-4 md:px-8">
+    <section id="about" className="bg-[#030128] py-16 px-4 md:px-8">
       {/* Section Heading */}
       <div className="text-center mb-[60px]">
         <h2 className="text-[32px] md:text-[48px] lg:text-[60px] font-jakarta font-medium text-white">
