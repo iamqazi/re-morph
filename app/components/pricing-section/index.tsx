@@ -24,7 +24,7 @@ const Pricing: React.FC = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1280px] mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[1226px] mx-auto">
         {pricingPlans.map((plan) => (
           <div
             key={plan.id}
