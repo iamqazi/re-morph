@@ -1,9 +1,30 @@
 // components/CTASection.tsx
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter, usePathname } from "next/navigation";
 const CTASection: React.FC = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        document
+          .getElementById("pricing")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    } else {
+      document
+        .getElementById("pricing")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative w-full my-8 mx-auto max-w-[1226px] xl:px-0 px-[16px] ">
       <div className="relative overflow-hidden rounded-3xl">
@@ -27,6 +48,7 @@ const CTASection: React.FC = () => {
           </h2>
 
           <Link
+            onClick={handleClick}
             style={{
               boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
               backdropFilter: " blur(6.5px)",

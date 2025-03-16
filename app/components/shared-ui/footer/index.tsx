@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 
@@ -38,6 +39,7 @@ const Footer: React.FC = () => {
             <div className="w-2/5 flex flex-col ">
               <div className=" ">
                 <button
+                  onClick={() => (window.location.href = "/application")}
                   style={{
                     background:
                       "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
