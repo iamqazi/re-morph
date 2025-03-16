@@ -95,10 +95,10 @@ export default function SearchBar() {
       <div className="flex-1 border-[#FFFFFF26] border-1 rounded-[6px] shadow-[inset_0px_0px_20px_0px_#C5B9F626] flex overflow-hidden items-center">
         <input
           type="text"
-          className=" py-2.5 px-3.5  flex-1 outline-none"
+          className=" py-2.5 px-3.5 text-white/50 placeholder:text-white/50 flex-1 outline-none"
           placeholder="Search for Tokens"
         />
-        <BiSearch className="text-3xl mr-3.5 " />
+        <BiSearch className="text-3xl mr-3.5 text-white " />
       </div>
       <div className="flex gap-3 flex-wrap">
         <Dropdown options={Items} placeholder="All Items" />
