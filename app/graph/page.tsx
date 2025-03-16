@@ -1,0 +1,18 @@
+import GraphSection from "../components/graph-section";
+import GraphFooter from "../components/shared-ui/graph-cta";
+import NavBar from "../components/shared-ui/navbar";
+
+export default function Graphpage() {
+  return (
+    <div className="bg-[#040128] min-[1440px] relative">
+      {/* Fixed Navbar with gap below */}
+      <div className="absolute top-[40px] flex justify-center items-center mx-auto left-0 right-0 z-20">
+        <NavBar />
+      </div>
+      <div className="pt-32">
+        <GraphSection />
+      </div>
+      <GraphFooter />
+    </div>
+  );
+}

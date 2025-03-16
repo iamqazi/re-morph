@@ -3,12 +3,59 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { slide as Menu } from "react-burger-menu";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const pathname = usePathname();
 
   const handleButtonClickHome = () => {
     window.location.href = "/";
+  };
+  const router = useRouter();
+
+  const scrollToElement = (id: string) => {
+    const checkExist = setInterval(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        clearInterval(checkExist);
+      }
+    }, 100);
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        scrollToElement("pricing");
+      }, 1000);
+    } else {
+      scrollToElement("pricing");
+    }
+  };
+
+  const handleRoadmapClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        scrollToElement("roadmap");
+      }, 1000);
+    } else {
+      scrollToElement("roadmap");
+    }
+  };
+  const handleAboutClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        scrollToElement("about");
+      }, 1000);
+    } else {
+      scrollToElement("about");
+    }
   };
 
   const isActive = (path: string) => pathname === path;
@@ -47,18 +94,14 @@ export default function NavBar() {
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <button style={isActive("/about") ? activeLinkStyle : {}}>
-                    About
-                  </button>
-                </Link>
+                <div>
+                  <button onClick={handleAboutClick}>About</button>
+                </div>
               </li>
               <li>
-                <Link href="/why-us">
-                  <button style={isActive("/why-us") ? activeLinkStyle : {}}>
-                    Roadmap
-                  </button>
-                </Link>
+                <div>
+                  <button onClick={handleRoadmapClick}>Roadmap</button>
+                </div>
               </li>
               <li>
                 <Link href="/roadmap">
@@ -82,9 +125,10 @@ export default function NavBar() {
           {/* Signup button on the right for medium and large screens */}
           <div className="hidden lg:block">
             <button
+              onClick={handleClick}
               style={{
                 background:
-                  "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
+                  "linear-gradient(0deg, #7E62FF 12.55%, #C1B3FF 100.55%)",
               }}
               type="submit"
               className={`px-6 py-4 whitespace-nowrap md:text-[20px] h-[49px] text-[14px] md:w-[155px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-[600] rounded-[12px]`}
@@ -108,18 +152,18 @@ export default function NavBar() {
             Home
           </Link>
           <Link
-            id="about"
             className="menu-item"
             style={isActive("/about") ? activeLinkStyle : {}}
             href="/about"
+            onClick={handleAboutClick}
           >
             About
           </Link>
           <Link
-            id="roadmap"
             className="menu-item"
             style={isActive("/why-us") ? activeLinkStyle : {}}
             href="/why-us"
+            onClick={handleRoadmapClick}
           >
             Roadmap
           </Link>

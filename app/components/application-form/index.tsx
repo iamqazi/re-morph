@@ -686,7 +686,8 @@ const RemorphApplicationForm = () => {
                 <button
                   style={{
                     background:
-                      "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
+                      "linear-gradient(180deg, #6159D9 0%, #401DCB 100%)",
+
                     order: currentStep === 1 ? -1 : 1,
                   }}
                   type="submit"

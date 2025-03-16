@@ -30,7 +30,8 @@ const Timeline: React.FC = () => {
 
   return (
     <>
-      <div
+      <section
+        id="roadmap"
         style={{
           backgroundImage: "url('/bg-timeline.png')",
           backgroundSize: "cover",
@@ -39,7 +40,10 @@ const Timeline: React.FC = () => {
           padding: "60px 0",
         }}
       >
-        <div className="lg:px-0 px-[16px] container mx-auto w-full mt-[60px] h-full">
+        <div
+          id="roadmap"
+          className="lg:px-0 px-[16px] container mx-auto w-full mt-[60px] h-full"
+        >
           <h2 className="md:text-[48px] text-white text-[32px] mb-[70px] text-center lg:text-[60px] font-jakarta font-[500] mt-2">
             Road<span className="text-[#C5B8FF]">map</span>
           </h2>
@@ -132,7 +136,7 @@ const Timeline: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

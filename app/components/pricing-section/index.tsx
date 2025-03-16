@@ -5,7 +5,10 @@ import React from "react";
 
 const Pricing: React.FC = () => {
   return (
-    <section className="bg-[#030128] text-white py-16 px-4 md:px-8">
+    <section
+      id="pricing"
+      className="bg-[#030128] text-white py-16 px-4 md:px-8"
+    >
       {/* Section Heading */}
       <div className="flex justify-center mb-[60px] items-center flex-col">
         <Image
