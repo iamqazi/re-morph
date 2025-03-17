@@ -12,13 +12,13 @@ export default function GraphSection() {
 
   return (
     <section
-      className="bg-[#100B4E33] mb-[100px] border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
+      className="bg-[#100B4E33] mb-[100px] font-inter border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
    grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px] relative"
     >
       {/* Drawer Toggle Button */}
       <button
         onClick={toggleDrawer}
-        className="absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] z-10 transition-all duration-300"
+        className="w-[30px] absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] z-10 transition-all duration-300"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

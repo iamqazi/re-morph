@@ -55,26 +55,26 @@ export const TokenTable: React.FC<TokenTableProps> = ({
         }}
         className="overflow-x-auto p-[26px] border border-[#C5B9F64D] rounded-[12px] "
       >
-        <table className="w-full">
+        <table className="w-full text-[14px] tex font-inter">
           <thead>
             <tr className="border-b  border-[#C5B9F729] text-white">
               <th className="px-4 py-4 text-[14px] font-[500] text-left">#</th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 TOKEN
               </th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 PRICE $
               </th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 AGE
               </th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 TXNS
               </th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 VOLUME
               </th>
-              <th className="px-4 py-4 text-[14px] font-[500] text-left">
+              <th className="px-4 py-4 text-[14px] font-inter font-[500] text-left">
                 MAKERS
               </th>
               <th className="px-4 py-4 text-[14px] font-[500] text-left">5M</th>
@@ -97,7 +97,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
                 key={item.id}
                 className="border-b py-[20px] border-[#C5B9F729] hover:bg-navy-800"
               >
-                <td className="px-4 py-4 text-white">{item.id}</td>
+                <td className="px-4 font-inter text-[14px] py-4 text-white">
+                  {item.id}
+                </td>
                 <td className="px-4 py-4">
                   <div className="flex  gap-2 items-center">
                     <div className="h-[32px] w-[32px] mr-2 ">
@@ -144,9 +146,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
           <button
             onClick={goToPreviousPage}
             disabled={currentPage === 1}
-            className="mx-1 px-2 py-1 text-[#2172E5] text-[20px] rounded disabled:opacity-50"
+            className="mx-1 px-2 py-1 rotate-180 cursor-pointer rounded disabled:opacity-50"
           >
-            ←
+            <Image src={"/right.png"} height={20} width={16} alt="arrow" />
           </button>
           <span className="mx-2">
             Page {currentPage} of {totalPages}
@@ -154,9 +156,9 @@ export const TokenTable: React.FC<TokenTableProps> = ({
           <button
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
-            className="mx-1 px-2 py-1 text-[#2172E5] text-[20px] rounded disabled:opacity-50"
+            className="mx-1 px-2 py-1 text-[#2172E5] cursor-pointer text-[17px] rounded disabled:opacity-50"
           >
-            →
+            <Image src={"/right.png"} height={20} width={16} alt="arrow" />
           </button>
         </div>
       </div>

@@ -19,7 +19,7 @@ const Pricing: React.FC = () => {
           className="mb-[16px]"
         />
         <h2 className="md:text-[48px] text-white text-[32px] lg:text-[60px] font-jakarta font-[500] mt-2">
-          The Best <span className="text-[#C5B8FF]">Pricing Plans</span>
+          Verification <span className="text-[#C5B8FF]"> Plans</span>
         </h2>
       </div>
 
@@ -92,9 +92,6 @@ const Pricing: React.FC = () => {
                     )}
                   </div>
                 </div>
-                <span className="text-[14px] text-[#9B9BBD] mt-2 leading-[18px] font-[400]">
-                  {plan.description}
-                </span>
               </div>
 
               {/* Features List */}

@@ -60,7 +60,7 @@ export default function NewListings() {
                     </span>
                   </div>
                   {el.title && (
-                    <h5 className="text-[#C5B9F6] xl:text-[27px] md:text-2xl text-xl font-[700] mb-2 ">
+                    <h5 className="font-jakarta text-[#C5B9F6] xl:text-[27px] md:text-2xl text-xl font-[700] mb-2 ">
                       {el.title}
                     </h5>
                   )}
@@ -84,13 +84,12 @@ export default function NewListings() {
                         </span>
                       )}
                       <span className="sm:text-sm text-[12px]">
-                        24H
                         {el.volume && `Volume: ${el.volume}`}
                       </span>
                     </div>
                   </div>
                 </div>
-                <button className=" bg-gradient-to-b h-fit from-[#C1B3FF] to-[#7E62FF] flex gap-2 items-center justify-center rounded-xl w-full py-[6px] lg:my-[24px] md:my-[18px] sm:my-[14px] my-[12px] font-[600] text-lg md:hover:scale-105 transition-all ">
+                <button className="cursor-pointer bg-gradient-to-b h-fit from-[#C1B3FF] to-[#7E62FF] flex gap-2 items-center justify-center rounded-xl w-full py-[6px] lg:my-[24px] md:my-[18px] sm:my-[14px] my-[12px] font-[600] text-lg md:hover:scale-105 transition-all ">
                   Buy Now <IoIosArrowDropright className="text-xl" />{" "}
                 </button>
               </div>
