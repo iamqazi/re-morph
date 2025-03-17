@@ -58,19 +58,9 @@ export default function NavBar() {
     }
   };
 
-  const isActive = (path: string) => pathname === path;
-
-  // Active link styles
-  const activeLinkStyle = {
-    boxShadow: "0px 0px 20px 0px #FFFFFF52 inset",
-    background: "#7E61FF99",
-    borderRadius: "12px",
-    padding: "5px 32px",
-  };
-
   return (
     <>
-      <header className="max-w-[1220px] w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
+      <header className="max-w-[1220px]  w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
         <div className="w-full h-[68px] mx-auto flex justify-between items-center p-[12px]">
           {/* Logo on the left */}
           <Link href="/" className="text-white text-xl font-bold">
@@ -88,32 +78,39 @@ export default function NavBar() {
             <ul className="flex items-center space-x-8 text-[#DEDDFF]">
               <li>
                 <Link href="/">
-                  <button style={isActive("/") ? activeLinkStyle : {}}>
+                  <button className="cursor-pointer" >
                     Home
                   </button>
                 </Link>
               </li>
               <li>
                 <div>
-                  <button onClick={handleAboutClick}>About</button>
+                  <button className="cursor-pointer" onClick={handleAboutClick}>About</button>
                 </div>
               </li>
               <li>
                 <div>
-                  <button onClick={handleRoadmapClick}>Roadmap</button>
+                  <button className="cursor-pointer" onClick={handleRoadmapClick}>Roadmap</button>
                 </div>
               </li>
               <li>
-                <Link href="/roadmap">
-                  <button style={isActive("/roadmap") ? activeLinkStyle : {}}>
+                <a target="_blank" href="https://docs.remorph.me/">
+                  <button className="cursor-pointer" >
                     Docs
+                  </button>
+                </a>
+              </li>
+              <li>
+                <Link  href="/listing">
+                  <button className="cursor-pointer" >
+                    Listings
                   </button>
                 </Link>
               </li>
               <li>
                 <Link href="/launch-app">
                   <button
-                    style={isActive("/launch-app") ? activeLinkStyle : {}}
+                  className="cursor-pointer"
                   >
                     Launch App
                   </button>
@@ -131,7 +128,7 @@ export default function NavBar() {
                   "linear-gradient(0deg, #7E62FF 12.55%, #C1B3FF 100.55%)",
               }}
               type="submit"
-              className={`px-6 py-4 whitespace-nowrap md:text-[20px] h-[49px] text-[14px] md:w-[155px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-[600] rounded-[12px]`}
+              className={` cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[49px] text-[14px] md:w-[155px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-[600] rounded-[12px]`}
             >
               Buy Now
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />
@@ -146,14 +143,12 @@ export default function NavBar() {
           <Link
             id="home"
             className="menu-item"
-            style={isActive("/") ? activeLinkStyle : {}}
             href="/"
           >
             Home
           </Link>
           <Link
             className="menu-item"
-            style={isActive("/about") ? activeLinkStyle : {}}
             href="/about"
             onClick={handleAboutClick}
           >
@@ -161,24 +156,28 @@ export default function NavBar() {
           </Link>
           <Link
             className="menu-item"
-            style={isActive("/why-us") ? activeLinkStyle : {}}
             href="/why-us"
             onClick={handleRoadmapClick}
           >
             Roadmap
           </Link>
-          <Link
+          <a
             id="docs"
             className="menu-item"
-            style={isActive("/roadmap") ? activeLinkStyle : {}}
-            href="/roadmap"
+            target="_blank" href="https://docs.remorph.me/"
           >
             Docs
+          </a>
+          <Link
+            id="listings"
+            className="menu-item"
+            href="/listing"
+          >
+            Listings 
           </Link>
           <Link
             id="launch-app"
             className="menu-item"
-            style={isActive("/launch-app") ? activeLinkStyle : {}}
             href="/launch-app"
           >
             Launch App
