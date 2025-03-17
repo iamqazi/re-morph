@@ -65,10 +65,10 @@ const Footer: React.FC = () => {
                   <ul>
                     <li className="mb-2">
                       <a
-                        href="#"
+                        href="/listing"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
-                        Whitepaper
+                        Listings
                       </a>
                     </li>
                     <li className="mb-2">
@@ -81,10 +81,10 @@ const Footer: React.FC = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/preview"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
-                        About Us
+                        Live Preview Page
                       </a>
                     </li>
                   </ul>
