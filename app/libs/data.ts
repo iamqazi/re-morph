@@ -62,7 +62,6 @@ export const pricingPlans = [
     features: ["Team verification tag", "Overview of your team"],
     buttonText: "Get Started",
     icon: "/icon-1.png",
-    description: "per user/month, billed annually",
   },
   {
     index: 2,
@@ -76,7 +75,6 @@ export const pricingPlans = [
     ],
     buttonText: "Get Started",
     icon: "/icon-2.png",
-    description: "per user/month, billed annually",
     bgImage: "/box-bottom.png",
     bgImage2: "/box-top.png",
   },
@@ -93,7 +91,6 @@ export const pricingPlans = [
     ],
     buttonText: "Get Started",
     icon: "/icon-3.png",
-    description: "per user/month, billed annually",
   },
 ];
 export interface TeamMember {

@@ -58,13 +58,13 @@ const GraphFooter: React.FC = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#0a0a20] text-[14px] text-[#777599] py-4">
-        <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="font-sans mb-2 md:mb-0">Copyright 2025</div>
+      <div className="bg-[#030128] text-[14px] text-[#777599] py-4">
+        <div className="max-w-[1226px] font-inter mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div className="font-inter mb-2 md:mb-0">Copyright 2025</div>
           <div>
-            <span className="font-sans">Privacy - Policy</span>
-            <span className="font-sans mx-2">|</span>
-            <span className="font-sans">Powered by Digitaltodesign</span>
+            <span className="font-inter">Privacy - Policy</span>
+            <span className="font-inter mx-2">|</span>
+            <span className="font-inter">Powered by Digitaltodesign</span>
           </div>
         </div>
       </div>

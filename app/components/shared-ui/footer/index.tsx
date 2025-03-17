@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <div className="bg-[#030128] text-white flex flex-col md:px-0 px-[16px] ">
+    <div className="bg-[#030128] text-white flex flex-col xl:px-0 px-[16px] ">
       {/* Main content area */}
 
       {/* Footer Card */}
@@ -132,12 +132,12 @@ const Footer: React.FC = () => {
 
       {/* Copyright Bar */}
       <div className=" text-[14px] text-[#777599] py-4">
-        <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className=" font-sans">Copyright 2025</div>
+        <div className="max-w-[1226px] font-inter mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div className=" font-inter">Copyright 2025</div>
           <div>
-            <span className=" font-sans">Privacy - Policy</span>
-            <span className=" font-sans mx-2">|</span>
-            <span className=" font-sans">Powered by Digitaltodesign</span>
+            <span className=" font-inter">Privacy - Policy</span>
+            <span className=" font-inter mx-2">|</span>
+            <span className=" font-inter">Powered by Digitaltodesign</span>
           </div>
         </div>
       </div>

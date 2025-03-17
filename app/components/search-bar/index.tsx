@@ -14,6 +14,7 @@ const Items: OptionType[] = [
   { value: "OtherItems", label: "OtherItems" },
 ];
 const ListedOptions: { value: string; label: string }[] = [
+  { value: "Recently Listed", label: "Recently Listed" },
   { value: "Liq($)", label: "Liq($)" },
   { value: "MKT Cap($)", label: "MKT Cap($)" },
   { value: "TOTAL HOLDERS", label: "TOTAL HOLDERS" },
@@ -43,7 +44,8 @@ const customStyles: StylesConfig<OptionType, boolean> = {
     },
     borderRadius: "6px",
     padding: "6px 8px",
-    height: "50px",
+    minHeight: "50px", // Changed from height to minHeight
+    height: "auto", // Allow height to adjust based on content
   }),
   menu: (base) => ({
     ...base,
@@ -73,6 +75,7 @@ const customStyles: StylesConfig<OptionType, boolean> = {
   multiValue: (base) => ({
     ...base,
     backgroundColor: "#030128",
+    maxWidth: "130px", // Limit width of each selected value
   }),
   multiValueLabel: (base) => ({
     ...base,
@@ -85,6 +88,13 @@ const customStyles: StylesConfig<OptionType, boolean> = {
       backgroundColor: "#030128",
       color: "#fff",
     },
+  }),
+  valueContainer: (base) => ({
+    ...base,
+    flexWrap: "wrap", // Ensure values wrap properly
+    padding: "2px 8px",
+    maxHeight: "120px", // Add max height with overflow for many selections
+    overflow: "auto", // Add scrolling for many selections
   }),
 };
 
