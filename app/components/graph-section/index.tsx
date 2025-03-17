@@ -1,14 +1,225 @@
+"use client";
 import Image from "next/image";
 import CryptoTransactionsTable from "../chart";
+import React, { useState } from "react";
 
 export default function GraphSection() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
+
   return (
     <section
-      className="bg-[#100B4E33]  mb-[100px] border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
-   grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px]  "
+      className="bg-[#100B4E33] mb-[100px] border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
+   grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px] relative"
     >
+      {/* Drawer Toggle Button */}
+      <button
+        onClick={toggleDrawer}
+        className="absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] z-10 transition-all duration-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="16" y1="6" x2="8" y2="12"></line>
+          <line x1="16" y1="18" x2="8" y2="12"></line>
+        </svg>
+      </button>
+
+      {/* Drawer */}
+      <div
+        className={`fixed top-0 right-0 w-full sm:w-96 md:w-[420px] h-full bg-[#16123E] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          isDrawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full overflow-y-auto">
+          {/* Close Button */}
+          <button
+            onClick={toggleDrawer}
+            className="absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] transition-all duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          {/* Logo Section */}
+          <div className="p-6 pb-8">
+            <div className="flex items-center gap-3">
+              <Image src={"/logo.png"} height={56} width={300} alt="logo" />
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="px-6 flex gap-2 mb-6">
+            <button className="flex-1 py-2 bg-[#7E61FF] text-[#DEDDFF] rounded-md text-sm font-medium">
+              KYC
+            </button>
+            <button className="flex-1 py-2 bg-[#1BA4E5] text-[#DEDDFF] rounded-md text-sm font-medium">
+              DOX
+            </button>
+            <button className="flex-1 py-2 bg-[#94209D] text-[#DEDDFF] rounded-md text-sm font-medium">
+              TEAM
+            </button>
+          </div>
+
+          {/* Menu Options */}
+          <div className="px-6 flex-1">
+            <div className="flex flex-col gap-4">
+              <button
+                style={{
+                  border: "1px solid #FFFFFF26",
+                  boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                  backdropFilter: "blur(6.5px)",
+                }}
+                className="w-full flex items-center justify-between bg-[#191645] hover:bg-[#1E1A4D] text-white rounded-lg py-4 px-5 transition-all"
+              >
+                <span className="font-medium">PROJECT OVERVIEW</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 16 16 12 12 8"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </button>
+
+              <button
+                style={{
+                  border: "1px solid #FFFFFF26",
+                  boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                  backdropFilter: "blur(6.5px)",
+                }}
+                className="w-full flex items-center justify-between bg-[#191645] hover:bg-[#1E1A4D] text-white rounded-lg py-4 px-5 transition-all"
+              >
+                <span className="font-medium">OVER VIEW</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 16 16 12 12 8"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </button>
+
+              <button
+                style={{
+                  border: "1px solid #FFFFFF26",
+                  boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                  backdropFilter: "blur(6.5px)",
+                }}
+                className="w-full flex items-center justify-between bg-[#191645] hover:bg-[#1E1A4D] text-white rounded-lg py-4 px-5 transition-all"
+              >
+                <span className="font-medium">TEAM OVER VIEW</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 16 16 12 12 8"></polyline>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+
+            {/* Explore Builders Section */}
+            <div className="my-12">
+              <h3 className="text-[#FEFCFC] text-center text-[32px] font-medium mb-4">
+                Explore builders
+              </h3>
+
+              <div className="flex flex-col gap-4">
+                {/* Builder Cards - Repeat 3 times */}
+                {[1, 2, 3].map((item) => (
+                  <div
+                    style={{
+                      border: "1px solid #FFFFFF26",
+                      boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
+                      backdropFilter: "blur(6.5px)",
+                    }}
+                    key={item}
+                    className="bg-white/5 rounded-lg p-4 relative"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <Image
+                        src={"/NFT.png"}
+                        height={56}
+                        width={340}
+                        alt="logo"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h4 className="text-white text-lg font-medium uppercase">
+                        REMORPH AI
+                      </h4>
+                      <p className="text-white/70 text-sm">RemorphAI</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay when drawer is open */}
+      {isDrawerOpen && (
+        <div
+          className="fixed inset-0 bg-[#000000c0] z-40"
+          onClick={toggleDrawer}
+        ></div>
+      )}
+
       <div className="lg:flex-col lg:flex lg:order-1 order-2 gap-2 grid  grid-cols-1 lg:mt-0 mt-5">
+        {" "}
         <div className="flex flex-col gap-3">
+          <div>
+            <Image src={"/logo.png"} height={90} width={300} alt="logo" />
+          </div>
           <div className="gap-[5px] sm:text-sm text-[12px] capitalize text-[#DEDDFF] grid grid-cols-3  ">
             <span className="border border-white/15 bg-[#7E61FF1A] justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3">
               <Image src="/planet.svg" alt="website" width={16} height={16} />
