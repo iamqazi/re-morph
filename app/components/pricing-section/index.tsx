@@ -35,7 +35,7 @@ const Pricing: React.FC = () => {
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
             }}
-            className="bg-transparent relative border-[1px] border-[#C5B9F633] rounded-[18px] flex items-center flex-col justify-between overflow-hidden"
+            className="transition hover:scale-105 cursor-pointer bg-transparent relative border-[1px] border-[#C5B9F633] rounded-[18px] flex items-center flex-col justify-between overflow-hidden"
           >
             {/* Additional Background Image */}
             {plan.bgImage2 && (
@@ -50,7 +50,7 @@ const Pricing: React.FC = () => {
               />
             )}
 
-            <div className="relative p-8 rounded-2xl w-full  transition hover:scale-105">
+            <div className="relative p-8 rounded-2xl w-full ">
               <Image
                 src={plan.icon}
                 width={34}
@@ -116,7 +116,7 @@ const Pricing: React.FC = () => {
                 boxShadow:
                   plan.index === 2 ? "0px 0px 20px 0px #FFFFFF33 inset" : "",
               }}
-              className="mb-[40px] mx-[40px] w-[280px] xl:w-[310px] mt-6 border-[1px] border-[#545269] text-white py-3 rounded-lg shadow-md hover:opacity-80 transition"
+              className="cursor-pointer mb-[40px] mx-[40px] w-[280px] xl:w-[310px] mt-6 border-[1px] border-[#545269] text-white py-3 rounded-lg shadow-md hover:opacity-80 transition"
             >
               {plan.buttonText}
             </button>

@@ -88,7 +88,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
           <button
             style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
             key={index}
-            className="bg-[#7E61FF0D] font-inter w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[6px] hover:bg-opacity-70 transition duration-300"
+            className="cursor-pointer bg-[#7E61FF0D] font-inter w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[6px] hover:bg-opacity-70 transition duration-300"
           >
             {item}
           </button>

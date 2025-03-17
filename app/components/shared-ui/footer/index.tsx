@@ -1,8 +1,36 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+
 import React from "react";
 
 const Footer: React.FC = () => {
+  const pathname = usePathname();
+
+  const router = useRouter();
+
+  const scrollToElement = (id: string) => {
+    const checkExist = setInterval(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        clearInterval(checkExist);
+      }
+    }, 100);
+  };
+  const handleAboutClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        scrollToElement("about");
+      }, 1000);
+    } else {
+      scrollToElement("about");
+    }
+  };
   return (
     <div className="bg-[#030128] text-white flex flex-col xl:px-0 px-[16px] ">
       {/* Main content area */}
@@ -29,9 +57,11 @@ const Footer: React.FC = () => {
               </div>
 
               <p className="text-[#DEDDFF] text-[18px] font-[300] max-w-[385px] mb-6">
-                Lorem ipsum dolor sit amet consectetur. Condimentum venenatis
-                elementum maecenas vitae sed proin mi. Sed urna in feugiat in
-                vitae suscipit interdum. Vel sodales.
+                ReMorph AI — Reshaping Trust in Web3.
+                <br />
+                Building a safer and more transparent blockchain ecosystem with
+                KYC, KYB, and Team Verification. Empowering developers with
+                AI-driven business solutions.
               </p>
             </div>
 
@@ -45,7 +75,7 @@ const Footer: React.FC = () => {
                       "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
                   }}
                   type="submit"
-                  className={`px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
+                  className={`cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
                 >
                   Apply Now
                   <Image
@@ -68,12 +98,12 @@ const Footer: React.FC = () => {
                         href="/listing"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
-                        Listings
+                        Whitepaper
                       </a>
                     </li>
                     <li className="mb-2">
                       <a
-                        href="#"
+                        href="#roadmap"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
                         Roadmap
@@ -81,10 +111,10 @@ const Footer: React.FC = () => {
                     </li>
                     <li>
                       <a
-                        href="/preview"
+                        onClick={handleAboutClick}
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
-                        Live Preview Page
+                        About Us
                       </a>
                     </li>
                   </ul>
@@ -98,6 +128,14 @@ const Footer: React.FC = () => {
                   <ul>
                     <li className="mb-2">
                       <a
+                        href="https://discord.gg/ZBE8DkJac7"
+                        className="text-[#9B9BBD] text-[14px] hover:text-white"
+                      >
+                        Discord
+                      </a>
+                    </li>
+                    <li className="mb-2">
+                      <a
                         href="#"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
@@ -106,7 +144,7 @@ const Footer: React.FC = () => {
                     </li>
                     <li className="mb-2">
                       <a
-                        href="#"
+                        href="https://t.me/ReMorphAI"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
                         Telegram
@@ -114,7 +152,7 @@ const Footer: React.FC = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="https://x.com/RemorphAi"
                         className="text-[#9B9BBD] text-[14px] hover:text-white"
                       >
                         Twitter
@@ -132,12 +170,16 @@ const Footer: React.FC = () => {
 
       {/* Copyright Bar */}
       <div className=" text-[14px] text-[#777599] py-4">
-        <div className="max-w-[1226px] font-inter mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className=" font-inter">Copyright 2025</div>
+        <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div className=" font-sans">
+            ©️ 2025 ReMorph AI. All rights reserved.
+          </div>
           <div>
-            <span className=" font-inter">Privacy - Policy</span>
-            <span className=" font-inter mx-2">|</span>
-            <span className=" font-inter">Powered by Digitaltodesign</span>
+            <Link href={"/privacy-policy"} className=" font-sans">
+              Privacy - Policy
+            </Link>
+            <span className=" font-sans mx-2">|</span>
+            <span className=" font-sans">Powered by Digitaltodesign</span>
           </div>
         </div>
       </div>

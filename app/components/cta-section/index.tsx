@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 const CTASection: React.FC = () => {
   return (
     <div className="relative w-full my-8 mx-auto max-w-[1226px] xl:px-0 px-[16px] ">
@@ -26,16 +25,17 @@ const CTASection: React.FC = () => {
             Own a part of ReMroph AI, be the stakeholder.
           </h2>
 
-          <Link
+          <a
+            target="_blank"
             style={{
               boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
               backdropFilter: " blur(6.5px)",
             }}
-            href="/preview"
-            className="px-6 py-3 text-[20px] font-[400] md:px-8 md:py-4 bg-[#A428E70D] w-[270px] hover:bg-opacity-30 h-[66px] flex justify-center items-center text-[#DEDDFF]  rounded-[12px] border border-white/20 border-opacity-30 transition-all duration-300 backdrop-blur-sm hover:-translate-y-1"
+            href="https://raydium.io/swap/?inputMint=sol&outputMint=BERR3cxSF3LJBwxSd8ciNKX5b5BVkiuq3VXPSuNYpump"
+            className="cursor-pointer px-6 py-3 text-[20px] font-[400] md:px-8 md:py-4 bg-[#A428E70D] w-[270px] hover:bg-opacity-30 h-[66px] flex justify-center items-center text-[#DEDDFF]  rounded-[12px] border border-white/20 border-opacity-30 transition-all duration-300 backdrop-blur-sm hover:-translate-y-1"
           >
             Buy now
-          </Link>
+          </a>
         </div>
       </div>
     </div>

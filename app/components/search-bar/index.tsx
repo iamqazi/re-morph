@@ -41,6 +41,7 @@ const customStyles: StylesConfig<OptionType, boolean> = {
     boxShadow: "inset 0 0 20px 0px #FFFFFF33",
     "&:hover": {
       borderColor: "#FFFFFF",
+      cursor:'pointer',
     },
     borderRadius: "6px",
     padding: "6px 8px",
@@ -169,18 +170,18 @@ const FilterSelect: React.FC = () => {
   ].includes(selectedFilter);
 
   return (
-    <div className="relative">
+    <div className="relative cursor-pointer">
       {/* Custom Select */}
       <select
         value={selectedFilter}
         onChange={(e) => setSelectedFilter(e.target.value)}
-        className="bg-transparent border border-[#FFFFFF26] h-[50px] rounded-[6px] text-[#FFFFFF80] py-2 px-3 outline-none shadow-[inset_0_0_20px_0px_#FFFFFF33] appearance-none w-[150px]"
+        className="cursor-pointer bg-transparent border border-[#FFFFFF26] h-[50px] rounded-[6px] text-[#FFFFFF80] py-2 px-3 outline-none shadow-[inset_0_0_20px_0px_#FFFFFF33] appearance-none w-[150px]"
       >
         {ListedOptions.map((option) => (
           <option
             key={option.value}
             value={option.value}
-            className="bg-[#030128] text-[#D3D3D3]"
+            className="bg-[#030128] cursor-pointer text-[#D3D3D3]"
           >
             {option.label}
           </option>
@@ -271,7 +272,7 @@ export default function SearchBar() {
           className="py-2.5 px-3.5 text-white/50 placeholder:text-white/50 flex-1 outline-none"
           placeholder="Search for Tokens"
         />
-        <BiSearch className="text-3xl mr-3.5 text-white" />
+        <BiSearch className="text-3xl mr-3.5 cursor-pointer text-white" />
       </div>
       <div className="flex gap-3 flex-wrap">
         <Dropdown options={Items} placeholder="All Items" />
