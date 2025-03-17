@@ -54,18 +54,18 @@ const Timeline: React.FC = () => {
             {/* Vertical Timeline Line - Positioned with dynamic height */}
             <div
               className="border-2 absolute border-opacity-20 border-[#8258F2] top-0
-                md:left-1/2 left-[35px]"
+                md:left-1/2  left-[35px]"
               style={{
                 height: lineHeight > 0 ? `${lineHeight}px` : "100%",
-                top: lineTop > 0 ? `${lineTop}px` : "35px",
+                top: lineTop > 0 ? `${lineTop - 2}px` : "30px",
                 display: lineHeight > 0 ? "block" : "none",
               }}
             ></div>
 
             {/* Fallback line until JS measurement kicks in */}
             <div
-              className="border-2 absolute border-opacity-20 border-[#8258F2] md:h-[700px] h-full top-30 bottom-2
-                md:left-1/2 left-[35px]"
+              className="border-2 absolute border-opacity-20 border-[#8258F2] md:h-[700px] h-full top-[45px] bottom-10
+                md:left-1/2 left-[35px] sm:left-[28px] xs:left-[22px]"
               style={{ display: lineHeight > 0 ? "none" : "block" }}
             ></div>
 

@@ -23,18 +23,6 @@ export default function NavBar() {
     }, 100);
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        scrollToElement("pricing");
-      }, 1000);
-    } else {
-      scrollToElement("pricing");
-    }
-  };
-
   const handleRoadmapClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     if (pathname !== "/") {
@@ -121,8 +109,8 @@ export default function NavBar() {
 
           {/* Signup button on the right for medium and large screens */}
           <div className="hidden lg:block">
-            <button
-              onClick={handleClick}
+            <Link
+              href="/preview"
               style={{
                 background:
                   "linear-gradient(0deg, #7E62FF 12.55%, #C1B3FF 100.55%)",
@@ -132,7 +120,7 @@ export default function NavBar() {
             >
               Buy Now
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />
-            </button>
+            </Link>
           </div>
         </div>
       </header>

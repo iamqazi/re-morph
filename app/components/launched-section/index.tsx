@@ -42,7 +42,7 @@ const LaunchpadSection: React.FC = () => {
         <h2 className="text-[24px] md:text-[40px] lg:text-[60px] font-[500] font-jakarta leading-tight">
           AI Co-Pilot for Web3 <br /> Growth
         </h2>
-        <p className="text-[#9B9BBD] font-[300] font-sans mt-[24px] text-[24px]">
+        <p className="text-[#9B9BBD] font-[300] font-inter mt-[24px] text-[24px]">
           Unlock your project&apos;s full potential with AI-powered Business
           Development and personalized guidance every step of the way.
         </p>

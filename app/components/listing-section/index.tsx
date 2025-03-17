@@ -60,7 +60,7 @@ export default function NewListings() {
                     </span>
                   </div>
                   {el.title && (
-                    <h5 className="text-[#C5B9F6] xl:text-[27px] md:text-2xl text-xl font-[700] mb-2 ">
+                    <h5 className="font-jakarta text-[#C5B9F6] xl:text-[27px] md:text-2xl text-xl font-[700] mb-2 ">
                       {el.title}
                     </h5>
                   )}
@@ -84,7 +84,6 @@ export default function NewListings() {
                         </span>
                       )}
                       <span className="sm:text-sm text-[12px]">
-                        24H
                         {el.volume && `Volume: ${el.volume}`}
                       </span>
                     </div>

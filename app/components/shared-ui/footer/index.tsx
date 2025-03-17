@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
     }
   };
   return (
-    <div className="bg-[#030128] text-white flex flex-col md:px-0 px-[16px] ">
+    <div className="bg-[#030128] text-white flex flex-col xl:px-0 px-[16px] ">
       {/* Main content area */}
 
       {/* Footer Card */}

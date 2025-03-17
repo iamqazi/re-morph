@@ -22,14 +22,14 @@ const RemorphCard: React.FC = () => {
     {
       id: 2,
       title: "REMORPH AI",
-      subtitle: "RemorphPro",
+      subtitle: "Remorph",
       buttonText: "Buy Now",
       menuItems: ["KYC", "DOX", "TEAM"],
     },
     {
       id: 3,
       title: "REMORPH AI",
-      subtitle: "RemorphPlus",
+      subtitle: "Remorph",
       buttonText: "Buy Now",
       menuItems: ["KYC", "DOX", "TEAM"],
     },
@@ -88,7 +88,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
           <button
             style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
             key={index}
-            className="cursor-pointer bg-[#7E61FF0D] w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[6px] hover:bg-opacity-70 transition duration-300"
+            className="cursor-pointer bg-[#7E61FF0D] font-inter w-[90px] text-[16px] h-[34px] bg-opacity-50 text-white px-6  rounded-[6px] hover:bg-opacity-70 transition duration-300"
           >
             {item}
           </button>
@@ -97,10 +97,12 @@ const Card: React.FC<CardProps> = ({ data }) => {
 
       {/* Card title */}
       <div className="px-4 relative z-10 mb-[24px]">
-        <h1 className="text-[#C5B8FF] md:text-[30px] text-[20px] font-[700] mt-[12px] ">
+        <h1 className="text-[#C5B8FF] font-jakarta md:text-[30px] text-[20px] font-[700] mt-[12px] ">
           {data.title}
         </h1>
-        <p className="text-[#F4EAEA] text-[16px]">{data.subtitle}</p>
+        <p className="text-[#F4EAEA] foont-jakarta text-[16px]">
+          {data.subtitle}
+        </p>
       </div>
 
       {/* Buy now button */}
@@ -110,7 +112,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
             border: "1px solid #FFFFFF26",
             boxShadow: " 0px 0px 20px 0px #FFFFFF33 inset",
           }}
-          className="cursor-pointer bg-white/5  text-[#DEDDFF] w-[100px] h-[34px] text-[16px] px-4 rounded-[12px] hover:bg-opacity-70 transition duration-300 "
+          className="bg-white/5 cursor-pointer font-inter text-[#DEDDFF] w-[100px] h-[34px] text-[16px] px-4 rounded-[12px] hover:bg-opacity-70 transition duration-300 "
         >
           {data.buttonText}
         </button>
