@@ -2,7 +2,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 const CTASection: React.FC = () => {
   return (
     <div className="relative w-full my-8 mx-auto max-w-[1226px] xl:px-0 px-[16px] ">
