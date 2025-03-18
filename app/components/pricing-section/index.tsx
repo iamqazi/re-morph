@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
           >
             {/* Background Image - Hidden by default, shown on hover */}
             <Image
-              src={"/hover-bg.png"}
+              src={"/hover.png"}
               width={34}
               height={34}
               alt="icons"
