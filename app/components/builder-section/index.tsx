@@ -22,14 +22,14 @@ const RemorphCard: React.FC = () => {
     {
       id: 2,
       title: "REMORPH AI",
-      subtitle: "Remorph",
+      subtitle: "RemorphAI",
       buttonText: "Buy Now",
       menuItems: ["KYC", "DOX", "TEAM"],
     },
     {
       id: 3,
       title: "REMORPH AI",
-      subtitle: "Remorph",
+      subtitle: "RemorphAI",
       buttonText: "Buy Now",
       menuItems: ["KYC", "DOX", "TEAM"],
     },
@@ -59,7 +59,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       style={{
         boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
       }}
-      className="rounded-[6px] border border-white/20 overflow-hidden relative bg-white/5"
+      className="rounded-[6px] font-inter border border-white/20 overflow-hidden relative bg-white/5"
     >
       {/* Background graphic curves */}
       <div className="absolute bottom-0 right-0 ">
@@ -112,7 +112,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
             border: "1px solid #FFFFFF26",
             boxShadow: " 0px 0px 20px 0px #FFFFFF33 inset",
           }}
-          className="bg-white/5 cursor-pointer font-inter text-[#DEDDFF] w-[100px] h-[34px] text-[16px] px-4 rounded-[12px] hover:bg-opacity-70 transition duration-300 "
+          className="bg-white/5 backdrop-blur-sm hover:-translate-y-1 cursor-pointer font-inter text-[#DEDDFF] w-[110px] h-[34px] text-[16px] px-4 rounded-[12px] hover:bg-opacity-70 transition duration-300 "
         >
           {data.buttonText}
         </button>

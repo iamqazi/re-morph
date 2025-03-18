@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const GraphFooter: React.FC = () => {
@@ -39,7 +40,7 @@ const GraphFooter: React.FC = () => {
                       "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
                   }}
                   type="submit"
-                  className="px-6 py-4 whitespace-nowrap md:text-[20px] text-[14px] h-[57px] md:w-[207px] w-full border flex justify-center items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]"
+                  className="px-6 py-4 transition-all duration-300 backdrop-blur-sm hover:-translate-y-1 whitespace-nowrap md:text-[20px] text-[14px] h-[57px] md:w-[207px] w-full border flex justify-center items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]"
                 >
                   Apply Now
                   <Image
@@ -58,13 +59,17 @@ const GraphFooter: React.FC = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-[#030128] text-[14px] text-[#777599] py-4">
-        <div className="max-w-[1226px] font-inter mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="font-inter mb-2 md:mb-0">Copyright 2025</div>
+      <div className=" text-[14px] text-[#777599] py-4">
+        <div className="max-w-[1226px] font-sans mx-auto flex flex-col md:flex-row justify-between items-center">
+          <div className=" font-sans">
+            ©️ 2025 ReMorph AI. All rights reserved.
+          </div>
           <div>
-            <span className="font-inter">Privacy - Policy</span>
-            <span className="font-inter mx-2">|</span>
-            <span className="font-inter">Powered by Digitaltodesign</span>
+            <Link href={"/privacy-policy"} className=" font-sans">
+              Privacy - Policy
+            </Link>
+            <span className=" font-sans mx-2">|</span>
+            <span className=" font-sans">Powered by Digitaltodesign</span>
           </div>
         </div>
       </div>

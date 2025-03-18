@@ -10,8 +10,8 @@ type OptionType = {
 
 const Items: OptionType[] = [
   { value: "All Items", label: "All Items" },
-  { value: "SomeItems", label: "SomeItems" },
-  { value: "OtherItems", label: "OtherItems" },
+  { value: "SomeItems", label: "Some Items" },
+  { value: "OtherItems", label: "Other Items" },
 ];
 const ListedOptions: { value: string; label: string }[] = [
   { value: "Recently Listed", label: "Recently Listed" },
@@ -41,7 +41,7 @@ const customStyles: StylesConfig<OptionType, boolean> = {
     boxShadow: "inset 0 0 20px 0px #FFFFFF33",
     "&:hover": {
       borderColor: "#FFFFFF",
-      cursor:'pointer',
+      cursor: "pointer",
     },
     borderRadius: "6px",
     padding: "6px 8px",
@@ -175,7 +175,7 @@ const FilterSelect: React.FC = () => {
       <select
         value={selectedFilter}
         onChange={(e) => setSelectedFilter(e.target.value)}
-        className="cursor-pointer bg-transparent border border-[#FFFFFF26] h-[50px] rounded-[6px] text-[#FFFFFF80] py-2 px-3 outline-none shadow-[inset_0_0_20px_0px_#FFFFFF33] appearance-none w-[150px]"
+        className="cursor-pointer bg-transparent border hover:border-white border-[#FFFFFF26] h-[50px] rounded-[6px] text-[#FFFFFF80] py-2 px-3 outline-none shadow-[inset_0_0_20px_0px_#FFFFFF33] appearance-none w-[150px]"
       >
         {ListedOptions.map((option) => (
           <option

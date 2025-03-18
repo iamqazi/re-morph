@@ -677,7 +677,7 @@ const RemorphApplicationForm = () => {
                     }}
                     type="button"
                     onClick={handlePrevious}
-                    className="px-6 py-3 text-white md:w-[334px] md:text-[20px] h-[55px] text-[14px] uppercase border border-white/25 font-medium rounded-[12px] "
+                    className="px-6 py-3 cursor-pointer text-white md:w-[334px] md:text-[20px] h-[55px] text-[14px] uppercase border border-white/25 font-medium rounded-[12px] "
                   >
                     go to the previous page
                   </button>
@@ -691,7 +691,7 @@ const RemorphApplicationForm = () => {
                     order: currentStep === 1 ? -1 : 1,
                   }}
                   type="submit"
-                  className={`px-6 py-4 md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-white/20 text-white font-medium rounded-[12px]`}
+                  className={`px-6 py-4 cursor-pointer md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-white/20 text-white font-medium rounded-[12px]`}
                 >
                   {currentStep < 3
                     ? "GO TO NEXT SECTION"
