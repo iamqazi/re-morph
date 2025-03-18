@@ -32,29 +32,17 @@ export default function NewListings() {
                 <div>
                   <div className="md:mb-[24px] sm:mb-[18px] mb-[10px] flex gap-2 ">
                     <span
-                      className={`rounded-[6px] lg:py-[6px] py-[3px] w-full text-center ${
-                        el.desc
-                          ? "bg-[#7E61FF]"
-                          : "bg-transparent shadow-[inset_0px_0px_8px_0px_#ffffff1A] border border-white/15 "
-                      } `}
+                      className={`rounded-[6px] lg:py-[6px] py-[3px] w-full text-center bg-[#7E61FF] `}
                     >
                       KYC
                     </span>
                     <span
-                      className={`rounded-[6px] lg:py-[6px] py-[3px] w-full text-center ${
-                        el.desc
-                          ? "bg-[#1BA4E5]"
-                          : "bg-transparent shadow-[inset_0px_0px_8px_0px_#ffffff1A] border border-white/15 "
-                      } `}
+                      className={`rounded-[6px] lg:py-[6px] py-[3px] w-full text-center bg-[#1BA4E5]`}
                     >
                       DOX
                     </span>
                     <span
-                      className={`rounded-[6px]  lg:py-[6px] py-[3px] w-full text-center ${
-                        el.desc
-                          ? "bg-[#94209D]"
-                          : "bg-transparent shadow-[inset_0px_0px_8px_0px_#ffffff1A] border border-white/15 "
-                      } `}
+                      className={`rounded-[6px]  lg:py-[6px] py-[3px] w-full text-center bg-[#94209D]`}
                     >
                       TEAM
                     </span>

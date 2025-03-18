@@ -99,7 +99,7 @@ export default function NavBar() {
                 </a>
               </li>
               <li>
-                <Link href="/preview">
+                <Link href="/listing">
                   <button className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[100px]">
                     Launch App
                   </button>
@@ -147,7 +147,7 @@ export default function NavBar() {
           >
             Docs
           </a>
-          <Link id="launch-app" className="menu-item" href="/preview">
+          <Link id="launch-app" className="menu-item" href="/listing">
             Launch App
           </Link>
           <div className="hidden lg:block">

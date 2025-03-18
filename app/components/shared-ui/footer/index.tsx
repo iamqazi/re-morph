@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col lg:flex-row justify-between gap-[20px]">
             {/* Left Section */}
-            <div className="md:w-1/2 mb-8 md:mb-0">
+            <div className="lg:w-1/2 mb-8 md:mb-0">
               <div className="flex items-center mb-6">
                 <Image
                   height={72}
@@ -56,12 +56,11 @@ const Footer: React.FC = () => {
                 />
               </div>
 
-              <p className="text-[#DEDDFF] text-[18px] font-[300] max-w-[385px] mb-6">
-                ReMorph AI — Reshaping Trust in Web3.
-                <br />
-                Building a safer and more transparent blockchain ecosystem with
-                KYC, KYB, and Team Verification. Empowering developers with
-                AI-driven business solutions.
+              <p className="text-[#DEDDFF] text-[18px] font-[300] max-w-full xl:max-w-[385px] mb-6">
+                ReMorph AI — Reshaping Trust in Web3. Building a safer and more
+                transparent blockchain ecosystem with KYC, KYB, and Team
+                Verification. Empowering developers with AI-driven business
+                solutions.
               </p>
             </div>
 
