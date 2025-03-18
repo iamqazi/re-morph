@@ -61,7 +61,7 @@ const customStyles: StylesConfig<OptionType, boolean> = {
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isFocused ? "#030128" : "#030128",
-    color: state.isFocused ? "#fff" : "#D3D3D3",
+    color: state.isFocused ? "#fff" : "#fff",
     cursor: "pointer",
     padding: "10px 16px",
   }),

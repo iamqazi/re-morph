@@ -685,13 +685,12 @@ const RemorphApplicationForm = () => {
 
                 <button
                   style={{
-                    background:
-                      "linear-gradient(180deg, #6159D9 0%, #401DCB 100%)",
+                    boxShadow: "0px 0px 20px 0px #FFFFFF33 inset",
 
                     order: currentStep === 1 ? -1 : 1,
                   }}
                   type="submit"
-                  className={`px-6 py-4 cursor-pointer md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-white/20 text-white font-medium rounded-[12px]`}
+                  className={`px-6 py-4 bg-[#7E61FF0D]  cursor-pointer md:text-[20px] h-[55px] text-[14px] md:w-[334px] border justify-center flex items-center gap-2 border-white/20 text-white font-medium rounded-[12px]`}
                 >
                   {currentStep < 3
                     ? "GO TO NEXT SECTION"
