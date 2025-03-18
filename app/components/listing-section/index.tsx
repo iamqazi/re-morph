@@ -14,7 +14,7 @@ export default function NewListings() {
           return (
             <article
               key={el.id}
-              className="grid grid-rows-[auto_1fr] xl:max-w-[384px] lg:max-w-[354px] md:max-w-full max-w-[314px] w-full border-[#c5b9f6]/20 border-1 rounded-[18px] shadow-[inset_0px_0px_55px_0px_#C5B9F626] "
+              className="grid grid-rows-[auto_1fr] xl:max-w-[384px] lg:max-w-[354px] md:max-w-full  w-full border-[#c5b9f6]/20 border-1 rounded-[18px] shadow-[inset_0px_0px_55px_0px_#C5B9F626] "
             >
               <div className="relative sm:m-[12px] m-2 ">
                 <Image
@@ -89,7 +89,10 @@ export default function NewListings() {
                     </div>
                   </div>
                 </div>
-                <button className="cursor-pointer duration-300 backdrop-blur-sm hover:-translate-y-1 bg-gradient-to-b h-fit from-[#C1B3FF] to-[#7E62FF] flex gap-2 items-center justify-center rounded-xl w-full py-[6px] lg:my-[24px] md:my-[18px] sm:my-[14px] my-[12px] font-[600] text-lg md:hover:scale-105 transition-all ">
+                <button
+                  style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
+                  className="cursor-pointer text-white duration-300 backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] h-fi flex gap-2 items-center justify-center rounded-xl w-full py-[6px] lg:my-[24px] md:my-[18px] sm:my-[14px] my-[12px] font-[600] text-lg md:hover:scale-105 transition-all "
+                >
                   Buy Now <IoIosArrowDropright className="text-xl" />{" "}
                 </button>
               </div>

@@ -66,12 +66,17 @@ export default function NavBar() {
             <ul className="flex items-center space-x-8 text-[#DEDDFF]">
               <li>
                 <Link href="/">
-                  <button className="cursor-pointer">Home</button>
+                  <button className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]">
+                    Home
+                  </button>
                 </Link>
               </li>
               <li>
                 <div>
-                  <button className="cursor-pointer" onClick={handleAboutClick}>
+                  <button
+                    className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
+                    onClick={handleAboutClick}
+                  >
                     About
                   </button>
                 </div>
@@ -79,7 +84,7 @@ export default function NavBar() {
               <li>
                 <div>
                   <button
-                    className="cursor-pointer"
+                    className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
                     onClick={handleRoadmapClick}
                   >
                     Roadmap
@@ -88,17 +93,16 @@ export default function NavBar() {
               </li>
               <li>
                 <a target="_blank" href="https://docs.remorph.me/">
-                  <button className="cursor-pointer">Docs</button>
+                  <button className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]">
+                    Docs
+                  </button>
                 </a>
               </li>
               <li>
-                <Link href="/listing">
-                  <button className="cursor-pointer">Listings</button>
-                </Link>
-              </li>
-              <li>
                 <Link href="/preview">
-                  <button className="cursor-pointer">Launch App</button>
+                  <button className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[100px]">
+                    Launch App
+                  </button>
                 </Link>
               </li>
             </ul>
@@ -108,14 +112,11 @@ export default function NavBar() {
           <div className="hidden lg:block">
             <Link
               href="/preview"
-              style={{
-                background:
-                  "linear-gradient(0deg, #7E62FF 12.55%, #C1B3FF 100.55%)",
-              }}
+              style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
               type="submit"
-              className={`transition-all duration-300 backdrop-blur-sm hover:-translate-y-1 cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[49px] text-[14px] md:w-[155px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-[600] rounded-[12px]`}
+              className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
             >
-              Buy Now
+              <span>Buy Now</span>
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />
             </Link>
           </div>
@@ -146,23 +147,17 @@ export default function NavBar() {
           >
             Docs
           </a>
-          <Link id="listings" className="menu-item" href="/listing">
-            Listings
-          </Link>
           <Link id="launch-app" className="menu-item" href="/preview">
             Launch App
           </Link>
           <div className="hidden lg:block">
             <Link
               href="/preview"
-              style={{
-                background:
-                  "linear-gradient(0deg, #7E62FF 12.55%, #C1B3FF 100.55%)",
-              }}
+              style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
               type="submit"
-              className={`transition-all duration-300 backdrop-blur-sm hover:-translate-y-1 cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[49px] text-[14px] md:w-[155px] border justify-center flex items-center gap-2 border-[#B6A6FF] !text-white font-[600] rounded-[12px]`}
+              className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center !pb-0 justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
             >
-              Buy Now
+              <span>Buy Now</span>
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />
             </Link>
           </div>

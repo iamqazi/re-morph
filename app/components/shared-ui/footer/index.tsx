@@ -66,16 +66,13 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Right Section */}
-            <div className="w-2/5 flex flex-col ">
+            <div className="w-1/5 flex flex-col ">
               <div className=" ">
                 <button
                   onClick={() => (window.location.href = "/application")}
-                  style={{
-                    background:
-                      "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
-                  }}
+                  style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
                   type="submit"
-                  className={`transition-all duration-300 backdrop-blur-sm hover:-translate-y-1 cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
+                  className={` backdrop-blur-sm hover:-translate-y-1 mt-[16px] cursor-pointer bg-[#7E61FF0D] flex items-center !pb-0 justify-center gap-2 font-inter w-[210px] text-[16px] h-[58px] bg-opacity-50 text-white rounded-[6px] hover:bg-opacity-70 transition duration-300`}
                 >
                   Apply Now
                   <Image
