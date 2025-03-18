@@ -16,25 +16,15 @@ export default function GraphSection() {
    grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px] relative"
     >
       {/* Drawer Toggle Button */}
-      <button
+
+      <Image
         onClick={toggleDrawer}
-        className="w-[30px] absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] z-10 transition-all duration-300"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="16" y1="6" x2="8" y2="12"></line>
-          <line x1="16" y1="18" x2="8" y2="12"></line>
-        </svg>
-      </button>
+        className="w-[45px] absolute top-4 right-4 cursor-pointer rounded-full p-[2px] z-10 transition-all duration-300"
+        src={"/modal-button.png"}
+        height={50}
+        width={50}
+        alt="button"
+      />
 
       {/* Drawer */}
       <div
@@ -419,7 +409,7 @@ export default function GraphSection() {
           </div>
         </div>
       </div>
-      <div className="flex-1 lg:order-2 order-1 ">
+      <div className="flex-1 lg:order-2 order-1 mt-[40px] ">
         <Image
           src={"/graph.png"}
           alt="graph"

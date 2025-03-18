@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                       "linear-gradient(0deg, #7E62FF 34.55%, #C1B3FF 144.55%)",
                   }}
                   type="submit"
-                  className={`cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
+                  className={`transition-all duration-300 backdrop-blur-sm hover:-translate-y-1 cursor-pointer px-6 py-4 whitespace-nowrap md:text-[20px] h-[57px] text-[14px] md:w-[207px] border justify-center flex items-center gap-2 border-[#B6A6FF] text-white font-medium rounded-[12px]`}
                 >
                   Apply Now
                   <Image

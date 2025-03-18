@@ -67,7 +67,7 @@ const Pricing: React.FC = () => {
               <div className="flex flex-col items-start">
                 <div className="flex">
                   <span
-                    className={`font-jakarta whitespace-nowrap  text-[48px] leading-[52px] font-[600] ${
+                    className={`font-jakarta whitespace-normal md:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap   text-[48px] leading-[52px] font-[600] ${
                       plan.index !== 1
                         ? "text-[#B194FF] text-[48px]  "
                         : "text-white  md:text-[60px]"

@@ -86,7 +86,7 @@ const Timeline: React.FC = () => {
 
                 {/* Timeline Icon Box */}
                 <div
-                  className="timeline-icon-box flex z-20 flex-col justify-center items-center order-1 bg-transparent shadow-xl w-[90px] lg:w-[70px] h-[70px] rounded-[10px] relative"
+                  className="timeline-icon-box  flex z-20 flex-col justify-center items-center order-1 bg-transparent shadow-xl w-[90px] lg:w-[70px] h-[70px] rounded-[10px] relative"
                   style={{
                     border: "1.14px solid transparent",
                     backgroundImage:
@@ -95,7 +95,7 @@ const Timeline: React.FC = () => {
                     backgroundClip: "content-box, border-box",
                   }}
                 >
-                  <div className="absolute top-0 left-0 w-full">
+                  <div className="absolute  top-0 left-0 w-full">
                     <Image
                       src={"/glow.png"}
                       height={22}
@@ -117,7 +117,7 @@ const Timeline: React.FC = () => {
                   style={{
                     boxShadow: "0px 0px 62.76px 0px #C5B9F626 inset",
                   }}
-                  className="order-1 border-[#C5B9F64D] text-white border-[1px] drop-shadow-xl rounded-[20px] shadow-xl w-full md:w-[380px] px-[16px] py-[30px] bg-transparent"
+                  className="order-1  border-[#C5B9F64D] text-white border-[1px] drop-shadow-xl rounded-[20px] shadow-xl w-full md:w-[380px] px-[16px] py-[30px] bg-transparent"
                 >
                   <div className="flex items-center gap-2 mb-3">
                     <h3 className="font-[700] font-jakarta text-[#C5B9F6] text-[27px]">
