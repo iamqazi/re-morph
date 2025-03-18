@@ -19,7 +19,7 @@ export default function GraphSection() {
 
       <Image
         onClick={toggleDrawer}
-        className="w-[45px] absolute top-4 right-4 cursor-pointer rounded-full p-[2px] z-10 transition-all duration-300"
+        className="w-[45px] absolute top-4 right-4 cursor-pointer  p-[2px] z-10 transition-all duration-300"
         src={"/modal-button.png"}
         height={50}
         width={50}
@@ -36,7 +36,7 @@ export default function GraphSection() {
           {/* Close Button */}
           <button
             onClick={toggleDrawer}
-            className="absolute top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] transition-all duration-300"
+            className="absolute z-10 top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] transition-all duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

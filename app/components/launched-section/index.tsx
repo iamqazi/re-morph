@@ -38,7 +38,7 @@ const LaunchpadSection: React.FC = () => {
       </div>
 
       {/* Right Text Section */}
-      <div className="w-full md:w-1/2 md:ml-[40px] flex flex-col text-center md:text-left mt-10 md:mt-0">
+      <div className="w-full md:w-1/2 md:ml-[40px] items-center md:items-start justify-center flex flex-col text-center md:text-left mt-10 md:mt-0">
         <h2 className="text-[24px] md:text-[40px] lg:text-[60px] font-[500] font-jakarta leading-tight">
           AI Co-Pilot for Web3 <br /> Growth
         </h2>
