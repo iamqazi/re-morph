@@ -37,8 +37,8 @@ const Timeline: React.FC = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          padding: "60px 0",
         }}
+        className="pb-[60px] pt-0 md:py-[60px]"
       >
         <div
           id="roadmap"
