@@ -36,7 +36,7 @@ export default function GraphSection() {
           {/* Close Button */}
           <button
             onClick={toggleDrawer}
-            className="absolute z-10 top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] transition-all duration-300"
+            className="absolute z-10 cursor-pointer top-4 right-4 bg-white text-[#927AFF] rounded-full p-[2px] transition-all duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
