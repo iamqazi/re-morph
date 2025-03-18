@@ -99,13 +99,7 @@ const Pricing: React.FC = () => {
             </div>
 
             {/* Button */}
-            <button
-              style={{
-                boxShadow:
-                  plan.index === 2 ? "0px 0px 20px 0px #FFFFFF33 inset" : "",
-              }}
-              className="cursor-pointer mb-[40px] mx-[40px] w-[280px] xl:w-[310px] mt-6 border-[1px] border-[#545269] text-white py-3 rounded-lg shadow-md hover:opacity-80 transition"
-            >
+            <button className="cursor-pointer mb-[40px] mx-[40px] w-[280px] xl:w-[310px] mt-6 border-[1px] border-[#545269] text-white py-3 rounded-lg shadow-md group-hover:shadow-[0px_0px_20px_0px_#FFFFFF33_inset] hover:opacity-80 transition">
               {plan.buttonText}
             </button>
           </div>

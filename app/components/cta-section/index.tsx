@@ -21,7 +21,7 @@ const CTASection: React.FC = () => {
         {/* Content Container with padding that adjusts based on screen size */}
         <div className="relative z-10 flex flex-col items-center justify-center py-10 px-4 md:py-16 md:px-0 lg:py-20 ">
           {/* Main Content with responsive font sizes */}
-          <h2 className="text-[24px] md:text-[48px] lg:text-[60px] font-[600] text-white text-center max-w-4xl mb-4 md:mb-6 lg:mb-8 leading-tight">
+          <h2 className="text-[24px] md:text-[42px] lg:text-[60px] font-[600] text-white text-center max-w-4xl mb-4 md:mb-6 lg:mb-8 leading-tight">
             Own a part of ReMroph AI, be the stakeholder.
           </h2>
 
