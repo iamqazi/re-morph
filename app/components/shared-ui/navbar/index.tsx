@@ -155,7 +155,7 @@ export default function NavBar() {
               href="/preview"
               style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
               type="submit"
-              className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center !pb-0 justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
+              className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center !pb-0 justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 !text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
             >
               <span>Buy Now</span>
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />
