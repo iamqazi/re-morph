@@ -1,77 +1,73 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 const AnimatedBackground = () => {
-  const [stars, setStars] = useState<
-    {
-      id: number;
-      size: number;
-      left: number;
-      duration: number;
-      delay: number;
-      rotation: number;
-    }[]
-  >([]);
+  // Use useMemo to create stars only once
+  const starCount = 60; // Reduced from 100 to 60 for better performance
 
-  useEffect(() => {
-    const numStars = 100;
-    const newStars = Array.from({ length: numStars }).map((_, i) => ({
+  const stars = useMemo(() => {
+    return Array.from({ length: starCount }).map((_, i) => ({
       id: i,
-      size: Math.random() * 4 + 2, // Random size between 2px and 6px
-      left: Math.random() * 100, // Positioning in viewport width
-      duration: Math.random() * 9 + 5, // Animation duration between 5s and 14s
-      delay: Math.random() * 4, // Random delay up to 4s
-      rotation: Math.random() * 360, // Random rotation for stars
+      size: Math.random() * 4 + 2,
+      left: Math.random() * 100,
+      duration: Math.random() * 9 + 5,
+      delay: Math.random() * 4,
+      rotation: Math.random() * 360,
     }));
-    setStars(newStars);
   }, []);
+
+  // Use CSS variables for better performance
+  const starStyle = `
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .animate-float {
+      animation: float linear infinite;
+    }
+    .star {
+      position: absolute;
+      mix-blend-mode: screen;
+      animation: float linear infinite;
+      bottom: -10vh;
+    }
+    .star-inner {
+      width: 100%;
+      height: 100%;
+      background-color: #50ffff;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      box-shadow: 0 0 20px 8px rgba(31, 255, 255, 0.7);
+      filter: drop-shadow(0 0 12px #50ffff) brightness(1.2);
+      opacity: 1;
+    }
+  `;
 
   return (
     <div className="w-full inset-0 overflow-hidden bg-[#02102700]">
       {stars.map((star) => (
         <div
           key={star.id}
-          className="absolute mix-blend-screen animate-float"
+          className="star"
           style={{
             width: `${star.size * 2}px`,
             height: `${star.size * 2}px`,
             left: `${star.left}vw`,
-            bottom: `-10vh`,
             animationDuration: `${star.duration}s`,
             animationDelay: `${star.delay}s`,
             transform: `rotate(${star.rotation}deg)`,
           }}
         >
-          {/* Star shape using clip-path with enhanced brightness and glow */}
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundColor: "#50ffff", // Brighter color
-              clipPath:
-                "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
-              boxShadow: "0 0 20px 8px rgba(31, 255, 255, 0.7)", // Stronger glow
-              filter: "drop-shadow(0 0 12px #50ffff) brightness(1.2)", // Enhanced drop shadow and brightness
-              opacity: 1,
-            }}
-          />
+          <div className="star-inner" />
         </div>
       ))}
-      <style jsx>{`
-        @keyframes float {
-          from {
-            transform: translateY(100vh) rotate(0deg);
-            opacity: 1;
-          }
-          to {
-            transform: translateY(-100vh) rotate(360deg);
-            opacity: 0;
-          }
-        }
-        .animate-float {
-          animation: float linear infinite;
-        }
-      `}</style>
+      <style jsx>{starStyle}</style>
     </div>
   );
 };

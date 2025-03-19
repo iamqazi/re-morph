@@ -42,10 +42,6 @@ export const TokenTableTwo: React.FC<TokenTableProps> = ({ data }) => {
 
   return (
     <div className="bg-transparent max-w-[1220px] mx-auto rounded-lg overflow-hidden mb-[100px] xl:px-0 px-[16px]">
-      <h1 className="text-white text-[24px] md:text-[48px] xl:text-[60px] font-jakarta font-[500] mb-[48px]">
-        Trending Tokens
-      </h1>
-
       <div
         style={{ boxShadow: "0px 0px 55px 0px #C5B9F626 inset" }}
         className="overflow-x-auto p-[26px] border border-[#C5B9F64D] rounded-[12px]"

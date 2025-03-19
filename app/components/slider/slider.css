@@ -1,0 +1,22 @@
+/* slider.css */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border: 1px solid white; /* White border for non-active bullets */
+  background-color: transparent;
+  opacity: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white !important; /* White color for the active bullet */
+  border: none;
+}
+.mySwiper {
+  padding-bottom: 40px; /* Ensures space for pagination */
+}
+
+.swiper-pagination {
+  position: relative !important; /* Override default absolute positioning */
+  margin-top: 24px; /* Space between cards and dots */
+}

@@ -1,24 +1,105 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 
 const CircularPathAnimation: React.FC = () => {
   const [angle, setAngle] = useState(0);
-  const requestRef = useRef<number>(0);
+  const animationRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number>(0);
+
+  // Constants defined outside the component render cycle
   const centerX = 600;
   const centerY = 800;
-  const radii = [300, 380, 460, 540, 620, 700]; // Circular paths
-  const speed = 0.002; // Slower uniform speed for all paths
+  const radii = [300, 380, 460, 540, 620, 700];
+  const speed = 0.002; // Original speed value
 
+  // Pre-calculate angle offsets for better performance
+  const angleOffsets = useMemo(() => {
+    const offsets = [];
+    for (let i = 0; i < radii.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        offsets.push({
+          pathIndex: i,
+          dotOffset: j * 2,
+          angle: i * (Math.PI / 3) + j * 2 * (Math.PI / 3),
+          isBorderedDot: j !== 0,
+        });
+      }
+    }
+    return offsets;
+  }, [radii]);
+
+  // Memoized paths for better performance
+  const paths = useMemo(() => {
+    return radii.map((radius, index) => (
+      <circle
+        key={`path-${index}`}
+        cx={centerX}
+        cy={centerY}
+        r={radius}
+        fill="none"
+        stroke="rgba(249, 249, 249, 0.442)"
+        strokeWidth="1"
+        strokeDasharray={index % 2 === 0 ? "none" : "5,8"}
+      />
+    ));
+  }, [radii]);
+
+  // Use RAF with timestamp for smooth animation but maintain original speed
   useEffect(() => {
-    const animate = () => {
-      setAngle((prevAngle) => (prevAngle + speed) % (2 * Math.PI));
-      requestRef.current = requestAnimationFrame(animate);
+    const animate = (timestamp: number) => {
+      if (!lastTimeRef.current) lastTimeRef.current = timestamp;
+      const deltaTime = timestamp - lastTimeRef.current;
+
+      // Only update state if enough time has passed
+      if (deltaTime > 16) {
+        // Cap at ~60fps
+        // Use fixed increment similar to original code instead of deltaTime
+        setAngle((prevAngle) => (prevAngle + speed) % (2 * Math.PI));
+        lastTimeRef.current = timestamp;
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
     };
-    requestRef.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(requestRef.current!);
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, []);
 
+  // Calculate dot positions based on current angle
+  const dots = useMemo(() => {
+    return angleOffsets.map(
+      ({ pathIndex, dotOffset, angle: offsetAngle, isBorderedDot }) => {
+        const radius = radii[pathIndex];
+        const currentAngle = angle + offsetAngle;
+        const x = centerX + radius * Math.cos(currentAngle);
+        const y = centerY + radius * Math.sin(currentAngle);
+        const key = `dot-${pathIndex}-${dotOffset}`;
+
+        return isBorderedDot ? (
+          <g key={key}>
+            <circle
+              cx={x}
+              cy={y}
+              r="6"
+              fill="none"
+              stroke="#c9cbcfdf"
+              strokeWidth="1.5"
+            />
+            <circle cx={x} cy={y} r="3" fill="#c9cbcfdf" />
+          </g>
+        ) : (
+          <circle key={key} cx={x} cy={y} r="4" fill="#c9cbcfdf" />
+        );
+      }
+    );
+  }, [angle, angleOffsets, radii]);
+
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none ">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <svg
         width="100%"
         height="100%"
@@ -26,7 +107,6 @@ const CircularPathAnimation: React.FC = () => {
         preserveAspectRatio="xMidYMin slice"
         className="absolute top-0 left-0 w-full h-full opacity-30"
       >
-        {/* Radial Gradient Background */}
         <defs>
           <radialGradient
             id="bg-gradient"
@@ -42,64 +122,11 @@ const CircularPathAnimation: React.FC = () => {
         </defs>
         <rect x="0" y="0" width="100%" height="100%" fill="url(#bg-gradient)" />
 
-        {/* Circles (Paths) */}
-        {radii.map((radius, index) => (
-          <circle
-            key={index}
-            cx={centerX}
-            cy={centerY}
-            r={radius}
-            fill="none"
-            stroke="rgba(249, 249, 249, 0.442)"
-            strokeWidth="1"
-            strokeDasharray={index % 2 === 0 ? "none" : "5,8"}
-            transform={`rotate(${
-              (angle * 180) / Math.PI
-            }, ${centerX}, ${centerY})`}
-          />
-        ))}
+        {/* Static paths */}
+        {paths}
 
-        {/* Dots Moving Along Paths */}
-        {radii.map((radius, index) => {
-          return [0, 2, 4].map((dotOffset) => {
-            const x =
-              centerX +
-              radius *
-                Math.cos(
-                  angle + index * (Math.PI / 3) + dotOffset * (Math.PI / 3)
-                );
-            const y =
-              centerY +
-              radius *
-                Math.sin(
-                  angle + index * (Math.PI / 3) + dotOffset * (Math.PI / 3)
-                );
-            const isBorderedDot = dotOffset !== 0; // Two bordered, one non-bordered dot
-            return isBorderedDot ? (
-              <g key={`${index}-${dotOffset}`}>
-                {/* Outer Border Circle */}
-                <circle
-                  cx={x}
-                  cy={y}
-                  r="6"
-                  fill="none"
-                  stroke="#c9cbcfdf"
-                  strokeWidth="1.5"
-                />
-                {/* Inner Dot */}
-                <circle cx={x} cy={y} r="3" fill="#c9cbcfdf" />
-              </g>
-            ) : (
-              <circle
-                key={`${index}-${dotOffset}`}
-                cx={x}
-                cy={y}
-                r="4"
-                fill="#c9cbcfdf"
-              />
-            );
-          });
-        })}
+        {/* Dynamic dots */}
+        {dots}
       </svg>
     </div>
   );
