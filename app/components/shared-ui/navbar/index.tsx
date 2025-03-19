@@ -111,6 +111,7 @@ export default function NavBar() {
           {/* Signup button on the right for medium and large screens */}
           <div className="hidden lg:block">
             <Link
+              target="blank"
               href="https://raydium.io/swap/?inputMint=sol&outputMint=BERR3cxSF3LJBwxSd8ciNKX5b5BVkiuq3VXPSuNYpump"
               style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
               type="submit"

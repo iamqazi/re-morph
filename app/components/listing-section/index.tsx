@@ -77,12 +77,13 @@ export default function NewListings() {
                     </div>
                   </div>
                 </div>
-                <button
+                <a
+                  href="/preview"
                   style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
                   className="cursor-pointer text-white duration-300 backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] h-fi flex gap-2 items-center justify-center rounded-xl w-full py-[6px] lg:my-[24px] md:my-[18px] sm:my-[14px] my-[12px] font-[600] text-lg md:hover:scale-105 transition-all "
                 >
                   Buy Now <IoIosArrowDropright className="text-xl" />{" "}
-                </button>
+                </a>
               </div>
             </article>
           );

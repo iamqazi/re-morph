@@ -32,7 +32,38 @@ export const tokenData: TokenData[] = [
     mcpa: "$601K",
   },
 ];
-
+export const tokenData2: TokenData[] = [
+  {
+    id: 1,
+    token: "Remorph AI",
+    price: "$0.0001307",
+    age: "14D",
+    txns: 24176,
+    volume: "$4.4M",
+    makers: 10325,
+    fiveM: "14.4%",
+    oneH: "-2.6%",
+    sixH: "-12.5%",
+    twentyFourH: "2,199%",
+    liquidity: "$54K",
+    mcpa: "$601K",
+  },
+  {
+    id: 2,
+    token: "Remorph AI",
+    price: "$0.0001307",
+    age: "14D",
+    txns: 24176,
+    volume: "$4.4M",
+    makers: 10325,
+    fiveM: "14.4%",
+    oneH: "-2.6%",
+    sixH: "-12.5%",
+    twentyFourH: "2,199%",
+    liquidity: "$54K",
+    mcpa: "$601K",
+  },
+];
 // Fill in the rest of the data (items 3-18)
 for (let i = 3; i <= 50; i++) {
   tokenData.push({

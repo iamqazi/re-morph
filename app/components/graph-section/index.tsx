@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import CryptoTransactionsTable from "../chart";
 import React, { useState } from "react";
+import { tokenData } from "@/app/libs/data";
+import { TokenTableTwo } from "../trending-section/table-two";
 
 export default function GraphSection() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -419,7 +420,7 @@ export default function GraphSection() {
         />
         <div className="mt-[48px]">
           {" "}
-          <CryptoTransactionsTable />
+          <TokenTableTwo data={tokenData} itemsPerPage={10} />
         </div>
       </div>
     </section>
