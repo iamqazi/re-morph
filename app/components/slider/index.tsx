@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -43,6 +44,8 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
   const members = teamMembers || defaultTeamMembers;
 
   const getSlidesConfig = () => {
+    if (typeof window === "undefined")
+      return { slidesPerView: 1, spaceBetween: 10 }; // Default safe config
     const width = window.innerWidth;
     if (width >= 1024) return { slidesPerView: 3, spaceBetween: 30 };
     if (width >= 768) return { slidesPerView: 2, spaceBetween: 20 };
