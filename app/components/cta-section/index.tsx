@@ -15,7 +15,6 @@ const CTASection: React.FC = () => {
             className=" md:object-contain"
             priority
           />
-          {/* Overlay - Semi-transparent to ensure text readability */}
         </div>
 
         {/* Content Container with padding that adjusts based on screen size */}

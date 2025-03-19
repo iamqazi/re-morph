@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface CardData {
@@ -54,6 +56,8 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div
       style={{
@@ -108,6 +112,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
       {/* Buy now button */}
       <div className="px-4 mb-[20px] relative z-10">
         <button
+          onClick={() => router.push("/preview")}
           style={{
             border: "1px solid #FFFFFF26",
             boxShadow: " 0px 0px 20px 0px #FFFFFF33 inset",

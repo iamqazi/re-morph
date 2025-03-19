@@ -4,14 +4,16 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { slide as Menu } from "react-burger-menu";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function NavBar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClickHome = () => {
     window.location.href = "/";
   };
-  const router = useRouter();
 
   const scrollToElement = (id: string) => {
     const checkExist = setInterval(() => {
@@ -23,8 +25,11 @@ export default function NavBar() {
     }, 100);
   };
 
+  const closeMenu = () => setIsOpen(false);
+
   const handleRoadmapClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+    closeMenu();
     if (pathname !== "/") {
       router.push("/");
       setTimeout(() => {
@@ -34,8 +39,10 @@ export default function NavBar() {
       scrollToElement("roadmap");
     }
   };
+
   const handleAboutClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+    closeMenu();
     if (pathname !== "/") {
       router.push("/");
       setTimeout(() => {
@@ -48,7 +55,7 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="max-w-[1220px]  w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
+      <header className="max-w-[1220px] w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
         <div className="w-full h-[68px] mx-auto flex justify-between items-center p-[12px]">
           {/* Logo on the left */}
           <Link href="/" className="text-white text-xl font-bold">
@@ -72,24 +79,20 @@ export default function NavBar() {
                 </Link>
               </li>
               <li>
-                <div>
-                  <button
-                    className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
-                    onClick={handleAboutClick}
-                  >
-                    About
-                  </button>
-                </div>
+                <button
+                  className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
+                  onClick={handleAboutClick}
+                >
+                  About
+                </button>
               </li>
               <li>
-                <div>
-                  <button
-                    className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
-                    onClick={handleRoadmapClick}
-                  >
-                    Roadmap
-                  </button>
-                </div>
+                <button
+                  className="cursor-pointer text-[16px] font-medium hover:text-[#C5B8FF] hover:font-semibold min-w-[80px]"
+                  onClick={handleRoadmapClick}
+                >
+                  Roadmap
+                </button>
               </li>
               <li>
                 <a target="_blank" href="https://docs.remorph.me/">
@@ -114,7 +117,6 @@ export default function NavBar() {
               target="blank"
               href="https://raydium.io/swap/?inputMint=sol&outputMint=BERR3cxSF3LJBwxSd8ciNKX5b5BVkiuq3VXPSuNYpump"
               style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
-              type="submit"
               className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
             >
               <span>Buy Now</span>
@@ -126,18 +128,18 @@ export default function NavBar() {
 
       {/* Mobile Menu */}
       <div className="lg:hidden block">
-        <Menu right>
-          <Link id="home" className="menu-item" href="/">
+        <Menu
+          right
+          isOpen={isOpen}
+          onStateChange={({ isOpen }) => setIsOpen(isOpen)}
+        >
+          <Link id="home" className="menu-item" href="/" onClick={closeMenu}>
             Home
           </Link>
-          <Link className="menu-item" href="/about" onClick={handleAboutClick}>
+          <Link className="menu-item" href="#" onClick={handleAboutClick}>
             About
           </Link>
-          <Link
-            className="menu-item"
-            href="/why-us"
-            onClick={handleRoadmapClick}
-          >
+          <Link className="menu-item" href="#" onClick={handleRoadmapClick}>
             Roadmap
           </Link>
           <a
@@ -148,15 +150,20 @@ export default function NavBar() {
           >
             Docs
           </a>
-          <Link id="launch-app" className="menu-item" href="/listing">
+          <Link
+            id="launch-app"
+            className="menu-item"
+            href="/listing"
+            onClick={closeMenu}
+          >
             Launch App
           </Link>
           <div className="hidden lg:block">
             <Link
+              target="blank"
               href="https://raydium.io/swap/?inputMint=sol&outputMint=BERR3cxSF3LJBwxSd8ciNKX5b5BVkiuq3VXPSuNYpump"
               style={{ boxShadow: "0px 0px 20px 0px #FFFFFF33 inset" }}
-              type="submit"
-              className="cursor-pointer backdrop-blur-sm hover:-translate-y-1 bg-[#7E61FF0D] flex items-center !pb-0 justify-center gap-2 font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 !text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
+              className="cursor-pointer backdrop-blur-sm !pb-0 hover:-translate-y-1 bg-[#7E61FF0D] flex items-center justify-center  font-inter w-[130px] text-[16px] h-[50px] bg-opacity-50 !text-white rounded-[6px] hover:bg-opacity-70 transition duration-300"
             >
               <span>Buy Now</span>
               <Image src={"/arrow.png"} height={20} width={20} alt="arrow" />

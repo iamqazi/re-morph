@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { tokenData } from "@/app/libs/data";
 import { TokenTableTwo } from "../trending-section/table-two";
+import Link from "next/link";
 
 export default function GraphSection() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -212,15 +213,26 @@ export default function GraphSection() {
             <Image src={"/logo.png"} height={90} width={300} alt="logo" />
           </div>
           <div className="gap-[5px] sm:text-sm text-[12px] capitalize text-[#DEDDFF] grid grid-cols-3  ">
-            <span className="border border-white/15 bg-[#7E61FF1A] justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3">
+            <Link
+              href="/"
+              className="border border-white/15 bg-[#7E61FF1A] cursor-pointer justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3"
+            >
               <Image src="/planet.svg" alt="website" width={16} height={16} />
               Website
-            </span>
-            <span className="border border-white/15 bg-[#7E61FF1A] justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3">
+            </Link>
+            <Link
+              target="blank"
+              href="https://discord.gg/ZBE8DkJac7"
+              className="border border-white/15 bg-[#7E61FF1A] cursor-pointer justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3"
+            >
               <Image src="/x.svg" alt="x" width={16} height={16} />
               Twitter
-            </span>
-            <span className="border border-white/15 bg-[#7E61FF1A] justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3">
+            </Link>
+            <Link
+              target="blank"
+              href="https://t.me/ReMorphAI"
+              className="border border-white/15 bg-[#7E61FF1A] cursor-pointer justify-center rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] flex sm:px-[12px] px-[5px] py-[10px] items-center gap-3"
+            >
               <Image
                 src="/telegram.svg"
                 alt="telegram.svg"
@@ -228,7 +240,7 @@ export default function GraphSection() {
                 height={16}
               />
               Telegram
-            </span>
+            </Link>
           </div>
           <div className="border border-white/15 bg-[#7E61FF1A] rounded-[6px] shadow-[inset_0px_0px_10px_0px_#FFFFFF1A] text-[#DEDDFF] text-center flex flex-col gap-[6px] p-[10px]  ">
             PRICE USD

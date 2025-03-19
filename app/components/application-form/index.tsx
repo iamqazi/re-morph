@@ -174,14 +174,14 @@ const RemorphApplicationForm = () => {
         <NavBar />
       </div>
       <Image
-        src={"/left-glow.png"}
+        src={"/arrow-left.svg"}
         height={821}
         width={821}
         alt="glow"
         className="absolute top-0 z-10 left-0"
       />
       <Image
-        src={"/right-glow.png"}
+        src={"/arrow-right.svg"}
         height={821}
         width={821}
         alt="glow"
@@ -548,7 +548,7 @@ const RemorphApplicationForm = () => {
                       htmlFor="partnerships"
                       className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
-                      What is your project’s main goal?
+                      What is your project&apos;s main goal?
                     </label>
                     <textarea
                       id="partnerships"
@@ -564,7 +564,7 @@ const RemorphApplicationForm = () => {
                   {/* Project Status - Radio buttons */}
                   <div>
                     <label className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2">
-                      What is your project&apos;s main goal?
+                      What is your project&apos;s stage?
                     </label>
                     <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta text-[15px] text-white rounded-md border-white/30 border">
                       <div className="flex flex-wrap gap-4">
@@ -600,7 +600,8 @@ const RemorphApplicationForm = () => {
                   {/* Yes/No - Radio buttons */}
                   <div>
                     <label className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2">
-                      What is your project&apos;s main goal?
+                      Does your team have technical capability to fully develop
+                      the project
                     </label>
                     <div className="w-full p-3 bg-[#C4C4C41A] font-[400] font-jakarta text-[15px] text-white rounded-md border-white/30 border">
                       <div className="flex gap-8">
@@ -652,7 +653,7 @@ const RemorphApplicationForm = () => {
                       htmlFor="partnerships"
                       className="block text-[16px] md:text-[24px] font-jakarta font-[400] text-white mb-2"
                     >
-                      Any partnerships on board?
+                      Please list any active partnerships (N/A if none)
                     </label>
                     <textarea
                       id="partnerships"
