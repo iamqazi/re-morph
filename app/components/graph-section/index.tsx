@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { tokenData } from "@/app/libs/data";
-import { TokenTableTwo } from "../trending-section/table-two";
+// import { tokenData } from "@/app/libs/data";
+// import { TokenTableTwo } from "../trending-section/table-two";
 import Link from "next/link";
+import CryptoTransactionsTable from "../chart";
 
 export default function GraphSection() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -14,8 +15,8 @@ export default function GraphSection() {
 
   return (
     <section
-      className="bg-[#100B4E33] mb-[100px] font-inter border-r-0 border-l-0 border border-white/20 grid lg:grid-cols-[auto_1fr] 
-   grid-cols-1 py-[31px] lg:px-[41px] px-[20px] gap-[22px] relative"
+      className="bg-[#100B4E33] mb-[100px] font-inter border-r-0 border-l-0 border border-white/20 
+        grid lg:grid-cols-[auto_1fr] grid-cols-1 py-[31px] px-4 sm:px-[20px] lg:px-[41px] gap-[22px] relative overflow-hidden"
     >
       {/* Drawer Toggle Button */}
 
@@ -422,7 +423,7 @@ export default function GraphSection() {
           </div>
         </div>
       </div>
-      <div className="flex-1 lg:order-2 order-1 mt-[40px] ">
+      <div className="flex-1  lg:order-2 order-1 mt-[40px] ">
         <Image
           src={"/graph.png"}
           alt="graph"
@@ -430,9 +431,10 @@ export default function GraphSection() {
           height={571}
           className="bg-no-repeat bg-center bg-cover rounded-[10px] w-full select-none min-h-[250px]"
         />
-        <div className="mt-[48px]">
+        <div className="mt-[48px] ">
           {" "}
-          <TokenTableTwo data={tokenData} itemsPerPage={10} />
+          {/* <TokenTableTwo data={tokenData} /> */}
+          <CryptoTransactionsTable />
         </div>
       </div>
     </section>
