@@ -55,7 +55,7 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="max-w-[1220px] w-full bg-transparent border-[2px] rounded-[16px] border-white/5">
+      <header className="max-w-[1220px] w-full bg-transparent border-[2px]  rounded-[16px] border-white/5">
         <div className="w-full h-[68px] mx-auto flex justify-between items-center p-[12px]">
           {/* Logo on the left */}
           <Link href="/" className="text-white text-xl font-bold">

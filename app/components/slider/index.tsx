@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules"; // Added Autoplay module
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
 import "./slider.css";
 
-// Define the team member interface
 interface TeamMember {
   id: number;
   name: string;
@@ -14,13 +13,11 @@ interface TeamMember {
   image: string;
 }
 
-// Define the props interface
 interface SwiperSliderProps {
   teamMembers?: TeamMember[];
 }
 
 const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
-  // Default team members
   const defaultTeamMembers: TeamMember[] = [
     { id: 1, name: "Gotln", designation: "Founder/CEO", image: "/teams.svg" },
     {
@@ -45,28 +42,23 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
 
   const members = teamMembers || defaultTeamMembers;
 
-  // State to track slidesPerView and spaceBetween
-  const [slidesConfig, setSlidesConfig] = useState({
-    slidesPerView: 1,
-    spaceBetween: 10,
-  });
+  const getSlidesConfig = () => {
+    const width = window.innerWidth;
+    if (width >= 1024) return { slidesPerView: 3, spaceBetween: 30 };
+    if (width >= 768) return { slidesPerView: 2, spaceBetween: 20 };
+    return { slidesPerView: 1, spaceBetween: 10 };
+  };
+
+  const [slidesConfig, setSlidesConfig] = useState(getSlidesConfig);
+  const [swiperKey, setSwiperKey] = useState(0);
 
   useEffect(() => {
     const updateSlidesConfig = () => {
-      const width = window.innerWidth;
-      if (width >= 1024) {
-        setSlidesConfig({ slidesPerView: 3, spaceBetween: 30 });
-      } else if (width >= 768) {
-        setSlidesConfig({ slidesPerView: 2, spaceBetween: 20 });
-      } else {
-        setSlidesConfig({ slidesPerView: 1, spaceBetween: 10 });
-      }
+      setSlidesConfig(getSlidesConfig());
+      setSwiperKey((prev) => prev + 1); // Force re-render of Swiper
     };
 
-    // Initial setup
     updateSlidesConfig();
-
-    // Attach resize listener
     window.addEventListener("resize", updateSlidesConfig);
     return () => window.removeEventListener("resize", updateSlidesConfig);
   }, []);
@@ -82,16 +74,13 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
         </h2>
       </div>
       <Swiper
+        key={swiperKey} // Forces re-render when config changes
         modules={[Pagination, Autoplay]}
         loop={true}
-        centeredSlides={true}
         slidesPerView={slidesConfig.slidesPerView}
         spaceBetween={slidesConfig.spaceBetween}
         pagination={{ clickable: true, el: ".swiper-pagination" }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         className="mySwiper"
       >
         {members.map((member) => (
@@ -103,7 +92,6 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
               style={{ boxShadow: "0px 0px 62.76px 0px #C5B9F626 inset" }}
               className="relative bg-[#14102F] flex justify-center items-center flex-col rounded-2xl overflow-hidden shadow-lg border border-[#C5B9F64D] text-center w-full h-full"
             >
-              {/* Member Image */}
               <div className="px-5 py-4">
                 <Image
                   src={member.image}
@@ -113,7 +101,6 @@ const SwiperSlider: React.FC<SwiperSliderProps> = ({ teamMembers }) => {
                   className="object-contain"
                 />
               </div>
-              {/* Member Info */}
               <div className="mb-6 text-white">
                 <h3 className="text-[26px] font-[500] text-[#C5B9F6] font-jakarta">
                   {member.name}
