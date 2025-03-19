@@ -30,14 +30,14 @@ const HeroSection: React.FC = () => {
 
         {/* Glow Images */}
         <Image
-          src={"/left-glow.png"}
+          src={"/arrow-left.svg"}
           height={821}
           width={821}
           alt="glow"
           className="absolute top-0 z-10 left-0"
         />
         <Image
-          src={"/right-glow.png"}
+          src={"/arrow-right.svg"}
           height={821}
           width={821}
           alt="glow"
